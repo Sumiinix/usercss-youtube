@@ -29,6 +29,6 @@ This project is licensed under the MIT License. See the LICENSE file for more de
 
 ---
 
-This README was generated with the assistance of ChatGPT-4. 😊
+This README was generated with the assistance of ChatGPT-4.
 
 ---
