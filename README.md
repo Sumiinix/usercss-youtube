@@ -6,11 +6,11 @@ This user.css file allows you to change the number of videos displayed per row i
 
 Example on a Full HD Display:
 
-![ex1.jpg](screenshots\ex1.jpg)
+![ex1.jpg](https://github.com/Igusy/style-youtube-grid/blob/5aab8a96888b7e43f15de1c58d0f92dea4fd86c5/screenshots/ex1.jpg)
 
 Example on a 4K Display:
 
-![ex2.jpg](screenshots\ex2.jpg)
+![ex2.jpg](https://github.com/Igusy/style-youtube-grid/blob/5aab8a96888b7e43f15de1c58d0f92dea4fd86c5/screenshots/ex2.jpg)
 
 ## Installation
 
@@ -56,7 +56,7 @@ Enable these options as needed.
 
 - **Fix Arrow in Dark Mode** (changes the color of the arrow in the social links of the description; is the white arrow not visible only in my environment, or does it blend in for others too? )
 
-![ex2.jpg](screenshots\ex3.jpg)
+![ex3.jpg](https://github.com/Igusy/style-youtube-grid/blob/5aab8a96888b7e43f15de1c58d0f92dea4fd86c5/screenshots/ex3.jpg)
 
 ## License
 
