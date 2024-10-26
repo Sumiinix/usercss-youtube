@@ -1,204 +1,215 @@
 /* ==UserStyle==
 @name           Resize YouTube Grid
 @namespace      Igusy
-@version        1.0.0
+@version        2.0.0
 @description    style for youtube
 @author         Igusy
 @license        MIT
 @preprocessor   stylus
 
 
-@var checkbox gridOption             "Custom Grid padding"                   1
-@var range gridPadding               "　Grid padding"                        [10, 0, 99, 1, 'px']
-@var range gridPadding100            "　Grid padding +100px"                 [0, 0, 5000, 100, 'px']
+@var checkbox gridOption             "Grid Padding"                   1
+@var range gridPadding               "├─ 1 Steps"                   [10, 0, 99, 1, 'px']
+@var range gridPadding100            "└─ 100 Steps"                 [0, 0, 5000, 100, 'px']
 
 
-@var checkbox shelfRender            "Disable shelf (shorts, news ...)"      0
+@var checkbox shelfRender            "Disable Shelf (e.g. Shorts, News)"        0
 
 
-@var checkbox changeContensWidth     "Custom contents width (Reload page)"   1
-@var range contentsWidth             "　Contents width"                      [240, 10,  999, 1, 'px']
-@var range contentsWidth1000         "　Contents width +1000px"              [0, 0, 10000, 1000, 'px']
-@var range maxcontentsWidth          "　Max Contents width"                  [300, 10,  999, 1, 'px']
-@var range maxcontentsWidth1000      "　Max Contents width +1000px"          [0, 0, 10000, 1000, 'px']
-@var range sideMargin                "　Side Margin size"                    [5, 0, 99, 1, 'px']
-@var range sideMargin100             "　Side Margin size +100px"             [0, 0, 5000, 100, 'px']
-@var range bottomMargin              "　bottom Margin size"                  [14, 0, 99, 1, 'px']
-@var range bottomMargin100           "　bottom Margin size +100px"           [0, 0, 5000, 100, 'px']
+@var checkbox changeContentsWidth    "Content Size"                             1
+@var range contentsWidth             "├─ Width (1 Steps)"                     [240, 10,  999, 1, 'px']
+@var range contentsWidth1000         "├─ Width (1000 Steps)"                  [0, 0, 10000, 1000, 'px']
+@var range maxcontentsWidth          "├─ Max Width (1 Steps)"                 [300, 10,  999, 1, 'px']
+@var range maxcontentsWidth1000      "├─ Max Width (1000 Steps)"              [0, 0, 10000, 1000, 'px']
+@var range sideMargin                "├─ Margin Side (1 Steps)"               [5, 0, 99, 1, 'px']
+@var range sideMargin100             "├─ Margin Side (100 Steps)"             [0, 0, 5000, 100, 'px']
+@var range bottomMargin              "├─ Margin Bottom (1 Steps)"             [14, 0, 99, 1, 'px']
+@var range bottomMargin100           "└─ Margin Bottom (100 Steps)"           [0, 0, 5000, 100, 'px']
 
 
-@var checkbox textSize               "Custom text of grid contents"          1
-@var range titleText                 "　Video title size"                    [1, 0, 20, 1, 'rem']
-@var range titleText01               "　Video title size +0.1rem"            [0.4, 0, 0.9, 0.1, 'rem']
-@var range titleText001              "　Video title size +0.01rem"           [0, 0, 0.09, 0.01, 'rem']
-@var range channelText               "　Channel name size"                   [1, 0, 20, 1, 'rem']
-@var range channelText01             "　Channel name size +0.1rem"           [0.3, 0, 0.9, 0.1, 'rem']
-@var range channelText001            "　Channel name size +0.01rem"          [0, 0, 0.09, 0.01, 'rem']
-@var range metaText                  "　Meta text size"                      [1, 0, 20, 1, 'rem']
-@var range metaText01                "　Meta text size +0.1rem"              [0.3, 0, 0.9, 0.1, 'rem']
-@var range metaText001               "　Meta text size +0.01rem"             [0, 0, 0.09, 0.01, 'rem']
-@var range metaTextHeight            "　Meta text Line height"               [1, 0, 20, 1, 'rem']
-@var range metaTextHeight01          "　Meta text Line height +0.1rem"       [0.8, 0, 0.9, 0.1, 'rem']
-@var range metaTextHeight001         "　Meta text Line height +0.01rem"      [0, 0, 0.09, 0.01, 'rem']
+@var checkbox textSize               "Text Size"                               1
+@var range titleText                 "├─ Title (1 Steps)"                    [1, 0, 20, 1, 'rem']
+@var range titleText01               "├─ Title (0.1 Steps)"                  [0.4, 0, 0.9, 0.1, 'rem']
+@var range titleText001              "├─ Title (0.01 Steps)"                 [0, 0, 0.09, 0.01, 'rem']
+@var range channelText               "├─ Channel Name (1 Steps)"             [1, 0, 20, 1, 'rem']
+@var range channelText01             "├─ Channel Name (0.1 Steps)"           [0.3, 0, 0.9, 0.1, 'rem']
+@var range channelText001            "├─ Channel Name (0.01 Steps)"          [0, 0, 0.09, 0.01, 'rem']
+@var range metaText                  "├─ Meta Text (1 Steps)"                [1, 0, 20, 1, 'rem']
+@var range metaText01                "├─ Meta Text (0.1 Steps)"              [0.3, 0, 0.9, 0.1, 'rem']
+@var range metaText001               "└─ Meta Text (0.01 Steps)"             [0, 0, 0.09, 0.01, 'rem']
 
 
-@var checkbox iconSize               "Custom channel icon size"              0
-@var range channelIconSize           "　Channel Icon size"                   [3, 0, 100, 1, 'rem']
-@var range channelIconSize01         "　Channel Icon size +0.1rem"           [0, 0, 0.9, 0.1, 'rem']
-@var range channelIconSize001        "　Channel Icon size +0.01rem"          [0, 0, 0.09, 0.01, 'rem']
+@var checkbox iconSize               "Channel Icon Size"              0
+@var range channelIconSize           "├─ 1 Steps"                   [3, 0, 100, 1, 'rem']
+@var range channelIconSize01         "├─ 0.1 Steps"                 [0.4, 0, 0.9, 0.1, 'rem']
+@var range channelIconSize001        "└─ 0.01 Steps"                [0, 0, 0.09, 0.01, 'rem']
 
 
-@var checkbox marginSize             "Custom margin of grid contents"        1
-@var range marginTitleTop            "　Title top margin"                    [9, 0, 100, 1, 'px']
-@var range marginTitleBottom         "　Title bottom margin"                 [2, 0, 100, 1, 'px']
-@var range marginIconTop             "　Icon top margin"                     [9, 0, 100, 1, 'px']
-@var range marginIconTop01           "　Icon top margin +0.1"                [0, 0, 0.9, 0.1, 'px']
-@var range marginIconRight           "　Icon right margin"                   [10, 0, 100, 1, 'px']
-@var range marginIconRight01         "　Icon right margin +0.1"              [0, 0, 0.9, 0.1, 'px']
-@var range titlePaddingRight         "　Title Padding right"                 [20, 0, 100, 1, 'px']
+@var checkbox marginSize             "Details Margin"                    1
+@var range marginTitleTop            "├─ Title Top"                    [9, 0, 100, 1, 'px']
+@var range marginTitleBottom         "├─ Title Bottom"                 [2, 0, 100, 1, 'px']
+@var range marginIconTop             "├─ Avator Top 1 Steps"           [9, 0, 100, 1, 'px']
+@var range marginIconTop01           "├─ Avator Top 0.1 Steps"         [0, 0, 0.9, 0.1, 'px']
+@var range marginIconRight           "├─ Avator Right 1 Steps"         [10, 0, 100, 1, 'px']
+@var range marginIconRight01         "├─ Avator Right 0.1 Steps"       [0, 0, 0.9, 0.1, 'px']
+@var range titlePaddingRight         "└─ Title Padding Right"          [20, 0, 100, 1, 'px']
 
 
-@var checkbox menu                   "Custom menu icon"                      1
-@var range menuSize                  "　Menu icon size"                      [30, 0, 100, 1, 'px']
-@var range menuPosition              "　Menu icon position"                  [-10, -50, 50, 1, 'px']
+@var checkbox menu                   "Menu Icon"                      1
+@var range menuSize                  "├─ Size"                      [30, 0, 100, 1, 'px']
+@var range menuPosition              "└─ Position"                  [-10, -50, 50, 1, 'px']
 
 
-@var checkbox roundness              "Custom roundness"                      0
-@var range thumbnailRoundness        "　Thumbnail"                           [0, 0, 100, 1, 'px']
-@var range iconRoundness             "　Avatar Icon"                         [0, 0, 100, 1, '%']
+@var checkbox roundness              "Roundness"                             0
+@var range thumbnailRoundness        "├─ Thumbnail"                        [0, 0, 100, 1, 'px']
+@var range iconRoundness             "└─ Avatar Icon"                      [5, 0, 50, 1, '%']
 
 
-
-@var checkbox others                 "Others"                                0
-@var checkbox channelGrid            "　Custom Channel Grid"                 1
-@var range channelGridWidth          "　　Channel Grid width"                [90, 0, 100, 1, '%']
-@var checkbox player                 "　Custom player page"                  1
-@var range playerRoundness           "　　Player roundness"                  [0, 0, 100, 1, 'px']
-@var range playerRoundness100        "　　Player roundness +100"             [0, 0, 5000, 100, 'px']
-@var range descriptionRoundness      "　　Description roundness"             [0, 0, 100, 1, 'px']
-@var color descriptionColor          "　　Description Color"                 #ffffff0a
-
+@var checkbox channelGrid            "Channel Page Grid"                 0
+@var range channelGridWidth          "└─ Grid width"                   [90, 0, 100, 1, '%']
+@var checkbox player                 "Player Roundness"                  0
+@var range playerRoundness           "├─ 1 Steps"                      [0, 0, 100, 1, 'px']
+@var range playerRoundness100        "└─ 100 Steps"                    [0, 0, 5000, 100, 'px']
+@var checkbox subButton              "Button Before Subscription"        0
+@var color subColor                  "├─ Text color"                   #f1f1f1
+@var color subBackground             "└─ Background"                   rgba(255, 255, 255, 0.1)
+@var checkbox description            "Watch Page Description"            0
+@var range descriptionRoundness      "├─ Roundness"                    [0, 0, 100, 1, 'px']
+@var color descriptionColor          "├─ Background"                   #ffffff0a
+@var checkbox shortRemix             "├─ Hide shorts remixing"         1
+@var checkbox transcription          "├─ Hide transcription"           1
+@var checkbox channelDesctiption     "├─ Hide channel"                 1
+@var checkbox socialLinks            "├─ Hide social links"            1
+@var color fixSocialArrow            "├─ Fix arrow in dark mode"       #222
+@var checkbox videosDescription      "└─ Hide videos"                  1
 
 ==/UserStyle== */
 
 @-moz-document url-prefix("https://www.youtube.com/") {
     
     
-/* YouTube Grid Contents */
+    /* YouTube Grid Contents */
+        
     
-
-    /* Grid padding */
-    if(gridOption){
-        #contents.ytd-rich-grid-renderer{
-            padding-right: gridPadding100 + gridPadding !important;
-            padding-left: gridPadding100 + gridPadding !important;
-            width: auto !important;
+        /* Grid padding */
+        if(gridOption){
+            #contents.ytd-rich-grid-renderer{
+                padding-right: gridPadding100 + gridPadding !important;
+                padding-left: gridPadding100 + gridPadding !important;
+                width: auto !important;
+            }
         }
-    }
-
-
-    /* Shelf render (shorts, news ...) */
-    if(shelfRender){
-        ytd-rich-grid-renderer>#contents>ytd-rich-section-renderer:has(>#content>ytd-rich-shelf-renderer){
-            display: none !important;
-        }
-    }
     
     
-    /* Contents width */
-    if(changeContentsWidth){
-        ytd-rich-item-renderer[rendered-from-rich-grid]{
-            width: contentsWidth1000 + contentsWidth !important;/**/
-            max-width: maxcontentsWidth1000 + maxcontentsWidth !important;/**/
-            flex: 1 0 auto !important;/**/
-            margin: 0px sideMargin100+sideMargin bottomMargin+bottomMargin100 sideMargin100+sideMargin !important;
-        }
-        ytd-ghost-grid-renderer{
-            display: none !important;
-        }
-        #contents.ytd-rich-grid-renderer{
-            justify-content: center !important;
-        }
-        ytd-continuation-item-renderer{
-            min-width: contentsWidth !important;
-            flex: 0 0 0 !important;
-            height: auto !important;
-            justify-content: center;
-        }   
-    }
-    
-    
-    /* Contents text size */
-    if(textSize){
-        #video-title.ytd-rich-grid-media{
-            font-size: titleText + titleText01 + titleText001 !important;
-        }
-        ytd-rich-grid-renderer #text.ytd-channel-name{
-            font-size: channelText + channelText01 + channelText001 !important;
-        }
-        ytd-video-meta-block[rich-meta] #metadata-line.ytd-video-meta-block{
-            font-size: metaText + metaText01 + metaText001 !important;
-            line-height: metaTextHeight + metaTextHeight01 + metaTextHeight001 !important;
-        }
-    }
-    
-    
-    /* Channel icon size */
-    if(iconSize){
-        ytd-rich-grid-renderer .yt-spec-avatar-shape--avatar-size-medium{
-            width: channelIconSize + channelIconSize01 + channelIconSize001 !important;
-            height: channelIconSize + channelIconSize01 + channelIconSize001 !important;
-        }
-    }
-    
-    
-    /* Contents margin size */
-    if(marginSize){
-        h3.ytd-rich-grid-media{
-            margin: marginTitleTop 0 marginTitleBottom 0 !important
-        }
-        #avatar-container.ytd-rich-grid-media{
-            margin-top: marginIconTop + marginIconTop01 !important;
-            margin-right: marginIconRight + marginIconRight01 !important
-        }
-        #meta.ytd-rich-grid-media{
-            padding-right: titlePaddingRight !important;
-        }
-    }
-    
-    
-    if(menu){
-        ytd-menu-renderer.ytd-rich-grid-media{
-            right: menuPosition !important;
-        }
-        ytd-menu-renderer .ytd-menu-renderer[style-target=button]{
-            width: menuSize !important;
-            height: menuSize !important;
-        }
-    }
-    
-    
-    if(roundness){
-        ytd-thumbnail a.ytd-thumbnail, ytd-thumbnail:before{
-            border-radius: thumbnailRoundness !important
-        }
-        ytd-playlist-thumbnail a.ytd-playlist-thumbnail, ytd-playlist-thumbnail:before{
-            border-radius: thumbnailRoundness !important
-        }
-        .collections-stack-wiz__collection-stack1--large,
-        .collections-stack-wiz__collection-stack2,
-        .collections-stack-wiz__collection-stack1--medium{
-            border-radius: thumbnailRoundness !important
-        }
-        .yt-spec-avatar-shape__image{
-            border-radius: iconRoundness !important
+        /* Shelf render (shorts, news ...) */
+        if(shelfRender){
+            ytd-rich-grid-renderer>#contents>ytd-rich-section-renderer:has(>#content>ytd-rich-shelf-renderer){
+                display: none !important;
+            }
         }
         
-    }
-    
-    
-    if(others){
         
+        /* Contents width */
+        if(changeContentsWidth){
+            ytd-rich-item-renderer[rendered-from-rich-grid]{
+                width: contentsWidth1000 + contentsWidth !important;/**/
+                max-width: maxcontentsWidth1000 + maxcontentsWidth !important;/**/
+                flex: 1 0 auto !important;/**/
+                margin: 0px sideMargin100+sideMargin bottomMargin+bottomMargin100 sideMargin100+sideMargin !important;
+            }
+            ytd-ghost-grid-renderer{
+                display: none !important;
+            }
+            #contents.ytd-rich-grid-renderer{
+                justify-content: center !important;
+            }
+            ytd-continuation-item-renderer{
+                min-width: contentsWidth !important;
+                flex: 0 0 0 !important;
+                height: auto !important;
+                justify-content: center;
+            }
+            #attached-survey.ytd-rich-grid-media{
+                display: none !important;
+            }
+        }
+        
+        
+        /* Contents text size */
+        if(textSize){
+            #video-title.ytd-rich-grid-media{
+                font-size: titleText + titleText01 + titleText001 !important;
+            }
+            ytd-rich-grid-renderer #text.ytd-channel-name{
+                font-size: channelText + channelText01 + channelText001 !important;
+            }
+            ytd-video-meta-block[rich-meta] #metadata-line.ytd-video-meta-block{
+                font-size: metaText + metaText01 + metaText001 !important;
+            }
+        }
+        
+        
+        /* Channel icon size */
+        if(iconSize){
+            ytd-rich-grid-renderer .yt-spec-avatar-shape--avatar-size-medium{
+                width: channelIconSize + channelIconSize01 + channelIconSize001 !important;
+                height: channelIconSize + channelIconSize01 + channelIconSize001 !important;
+            }
+            ytd-rich-grid-renderer .yt-spec-avatar-shape--cairo-refresh.yt-spec-avatar-shape--live-ring::after{
+                width: channelIconSize + channelIconSize01 + channelIconSize001 !important;
+                height: channelIconSize + channelIconSize01 + channelIconSize001 !important;
+                inset: auto !important;
+            }
+        }
+        
+        
+        /* Contents margin size */
+        if(marginSize){
+            h3.ytd-rich-grid-media{
+                margin: marginTitleTop 0 marginTitleBottom 0 !important
+            }
+            #avatar-container.ytd-rich-grid-media{
+                margin-top: marginIconTop + marginIconTop01 !important;
+                margin-right: marginIconRight + marginIconRight01 !important
+            }
+            #meta.ytd-rich-grid-media{
+                padding-right: titlePaddingRight !important;
+            }
+        }
+        
+        
+        if(menu){
+            ytd-menu-renderer.ytd-rich-grid-media{
+                right: menuPosition !important;
+            }
+            ytd-menu-renderer .ytd-menu-renderer[style-target=button]{
+                width: menuSize !important;
+                height: menuSize !important;
+            }
+        }
+        
+        
+        if(roundness){
+            ytd-thumbnail a.ytd-thumbnail, ytd-thumbnail:before{
+                border-radius: thumbnailRoundness !important
+            }
+            ytd-playlist-thumbnail a.ytd-playlist-thumbnail, ytd-playlist-thumbnail:before{
+                border-radius: thumbnailRoundness !important
+            }
+            .collections-stack-wiz__collection-stack1--large,
+            .collections-stack-wiz__collection-stack2,
+            .collections-stack-wiz__collection-stack1--medium{
+                border-radius: thumbnailRoundness !important
+            }
+            .yt-spec-avatar-shape__image, #avatar.ytd-video-owner-renderer, yt-img-shadow, .yt-spec-avatar-shape--cairo-refresh.yt-spec-avatar-shape--live-ring::after{
+                border-radius: iconRoundness !important;
+            }
+            
+        }
+        
+        
+        
+        /* Others */
         if(channelGrid){
             ytd-two-column-browse-results-renderer.grid:not(.grid-disabled){
                 max-width: channelGridWidth !important;
@@ -207,18 +218,64 @@
                 width: channelGridWidth !important;
             }
         }
-        
+            
         if(player){
             ytd-watch-flexy[rounded-player-large][default-layout] #ytd-player.ytd-watch-flexy{
-                border-radius: playerRoundness100 + playerRoundness !important;
+                    border-radius: playerRoundness100 + playerRoundness !important;
             }
+    
+        }
+            
+        if(subButton){
+            html .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled {
+                color: subColor !important;
+                background: subBackground !important;
+            }
+        }
+    
+        if(description){
             #description.ytd-watch-metadata{
                 border-radius: descriptionRoundness !important;
                 background: descriptionColor !important;
             }
+            yt-interaction.rounded-large .fill.yt-interaction, yt-interaction.rounded-large .stroke.yt-interaction{
+                border-radius: descriptionRoundness !important;
+            }
+                
+            if(shortRemix){
+                ytd-reel-shelf-renderer.ytd-structured-description-content-renderer{
+                    display: none !important;
+                }
+            }
+            if(transcription){
+                ytd-video-description-transcript-section-renderer{
+                    display: none !important;
+                }
+            }
+            if(channelDesctiption){
+                #header.ytd-video-description-infocards-section-renderer{
+                    display: none !important;
+                }
+            }
+            if(socialLinks){
+                #social-links.ytd-video-description-infocards-section-renderer{
+                    display: none !important;
+                }
+            }
+            .arrow-container.ytd-video-description-infocards-section-renderer{
+                background-color: fixSocialArrow !important;
+            }
+            if(videosDescription){
+                #infocards-section.ytd-video-description-infocards-section-renderer{
+                    display: none !important;
+                }
+                if(socialLinks){
+                    if(videosDescription){
+                        ytd-video-description-infocards-section-renderer{
+                            padding: 0px 0 !important;
+                        }
+                    }
+                }
+            }
         }
-        
     }
-
-    
-}
