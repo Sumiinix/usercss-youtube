@@ -4,6 +4,14 @@ User style for YouTube
 
 This user.css file allows you to change the number of videos displayed per row in YouTube's video grid. By modifying the content width, you can increase the number of videos shown in each row, providing a more compact and efficient viewing experience.
 
+Example on a Full HD Display:
+
+![ex1.jpg](screenshots\ex1.jpg)
+
+Example on a 4K Display:
+
+![ex2.jpg](screenshots\ex2.jpg)
+
 ## Installation
 
 1. **Download the user.css file:**
@@ -20,6 +28,35 @@ This user.css file allows you to change the number of videos displayed per row i
 ## Usage
 
 - After applying the user.css file, the number of videos displayed per row in YouTube's video grid will increase. This allows you to see more videos at once without needing to scroll as much.
+
+## Limitations
+
+Please note the following limitations when applying this style:
+
+* **Inconsistent Number of Videos per Row**: The number of videos per row may become inconsistent, especially in rows preceding short videos or in the last row before new videos load.
+
+* **Ghost Cards Disabled**: Placeholder cards (ghost cards) that appear when loading new videos are hidden; only the loading spinner is shown.
+* **Variable Content Size**: The size of video content varies between the set Width and Max Width values.
+
+## Default and Optional Settings
+
+The default settings in this user.css file are designed **to change the number of videos displayed per row** in YouTube’s grid view. Additionally, there are other customization options that I personally use, which are disabled by default. You can enable these settings by simply checking the respective checkboxes:
+
+- **Disable Shelf** (e.g., Shorts, News sections)
+- **Channel Icon Size**
+- **Roundness** (for UI elements)
+- **Channel Page Grid** (custom grid layout on channel pages)
+- **Player Roundness** (degree of roundness of the video player)
+- **Button Before Subscription** (changes the color of the button displayed before subscribing)
+- **Watch Page Description** (customizes the description section on the watch page)
+
+Enable these options as needed.
+
+## Other Settings
+
+- **Fix Arrow in Dark Mode** (changes the color of the arrow in the social links of the description; is the white arrow not visible only in my environment, or does it blend in for others too? )
+
+![ex2.jpg](screenshots\ex3.jpg)
 
 ## License
 

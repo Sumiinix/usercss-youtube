@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Resize YouTube Grid
 @namespace      Igusy
-@version        2.0.1
+@version        2.0.2
 @description    style for youtube
 @author         Igusy
 @license        MIT
@@ -80,8 +80,8 @@
 @var color descriptionColor          "├─ Background"                   #ffffff0a
 @var checkbox shortRemix             "├─ Hide shorts remixing"         1
 @var checkbox transcription          "├─ Hide transcription"           1
-@var checkbox channelDesctiption     "├─ Hide channel"                 1
-@var checkbox socialLinks            "├─ Hide social links"            1
+@var checkbox channelDesctiption     "├─ Hide channel"                 0
+@var checkbox socialLinks            "├─ Hide social links"            0
 @var color fixSocialArrow            "├─ Fix arrow in dark mode"       #222
 @var checkbox videosDescription      "└─ Hide videos"                  1
 
