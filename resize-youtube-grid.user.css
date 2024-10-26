@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Resize YouTube Grid
 @namespace      Igusy
-@version        2.0.0
+@version        2.0.1
 @description    style for youtube
 @author         Igusy
 @license        MIT
@@ -14,6 +14,8 @@
 
 
 @var checkbox shelfRender            "Disable Shelf (e.g. Shorts, News)"        0
+@var checkbox homeShelf              "├─ Home"                                1
+@var checkbox subShelf               "└─ Subscription"                        1
 
 
 @var checkbox changeContentsWidth    "Content Size"                             1
@@ -85,197 +87,217 @@
 
 ==/UserStyle== */
 
-@-moz-document url-prefix("https://www.youtube.com/") {
-    
-    
-    /* YouTube Grid Contents */
-        
-    
-        /* Grid padding */
-        if(gridOption){
-            #contents.ytd-rich-grid-renderer{
-                padding-right: gridPadding100 + gridPadding !important;
-                padding-left: gridPadding100 + gridPadding !important;
-                width: auto !important;
-            }
-        }
-    
-    
-        /* Shelf render (shorts, news ...) */
-        if(shelfRender){
+@-moz-document url("https://www.youtube.com/") {
+    /* Shelf render (shorts, news ...) */
+    if(shelfRender){
+        if(homeShelf){
             ytd-rich-grid-renderer>#contents>ytd-rich-section-renderer:has(>#content>ytd-rich-shelf-renderer){
                 display: none !important;
             }
-        }
-        
-        
-        /* Contents width */
-        if(changeContentsWidth){
-            ytd-rich-item-renderer[rendered-from-rich-grid]{
-                width: contentsWidth1000 + contentsWidth !important;/**/
-                max-width: maxcontentsWidth1000 + maxcontentsWidth !important;/**/
-                flex: 1 0 auto !important;/**/
-                margin: 0px sideMargin100+sideMargin bottomMargin+bottomMargin100 sideMargin100+sideMargin !important;
-            }
-            ytd-ghost-grid-renderer{
+        }    
+    }
+}
+
+@-moz-document url("https://www.youtube.com/feed/subscriptions") {
+    /* Shelf render (shorts, news ...) */
+    if(shelfRender){
+        if(subShelf){
+            ytd-rich-grid-renderer>#contents>ytd-rich-section-renderer:has(>#content>ytd-rich-shelf-renderer){
                 display: none !important;
             }
-            #contents.ytd-rich-grid-renderer{
-                justify-content: center !important;
-            }
-            ytd-continuation-item-renderer{
-                min-width: contentsWidth !important;
-                flex: 0 0 0 !important;
-                height: auto !important;
-                justify-content: center;
-            }
-            #attached-survey.ytd-rich-grid-media{
+        }    
+    }
+}
+
+@-moz-document url-prefix("https://www.youtube.com/") {
+    
+    
+/* YouTube Grid Contents */
+    
+
+    /* Grid padding */
+    if(gridOption){
+        #contents.ytd-rich-grid-renderer{
+            padding-right: gridPadding100 + gridPadding !important;
+            padding-left: gridPadding100 + gridPadding !important;
+            width: auto !important;
+        }
+    }
+
+
+    /* Contents width */
+    if(changeContentsWidth){
+        ytd-rich-item-renderer[rendered-from-rich-grid]{
+            width: contentsWidth1000 + contentsWidth !important;/**/
+            max-width: maxcontentsWidth1000 + maxcontentsWidth !important;/**/
+            flex: 1 0 auto !important;/**/
+            margin: 0px sideMargin100+sideMargin bottomMargin+bottomMargin100 sideMargin100+sideMargin !important;
+        }
+        ytd-ghost-grid-renderer{
+            display: none !important;
+        }
+        #contents.ytd-rich-grid-renderer{
+            justify-content: center !important;
+        }
+        ytd-continuation-item-renderer{
+            min-width: contentsWidth !important;
+            flex: 0 0 0 !important;
+            height: auto !important;
+            justify-content: center;
+        }
+        #attached-survey.ytd-rich-grid-media{
+            display: none !important;
+        }
+    }
+    
+    
+    /* Contents text size */
+    if(textSize){
+        #video-title.ytd-rich-grid-media{
+            font-size: titleText + titleText01 + titleText001 !important;
+        }
+        ytd-rich-grid-renderer #text.ytd-channel-name{
+            font-size: channelText + channelText01 + channelText001 !important;
+        }
+        ytd-video-meta-block[rich-meta] #metadata-line.ytd-video-meta-block{
+            font-size: metaText + metaText01 + metaText001 !important;
+        }
+    }
+    
+    
+    /* Channel icon size */
+    if(iconSize){
+        ytd-rich-grid-renderer .yt-spec-avatar-shape--avatar-size-medium{
+            width: channelIconSize + channelIconSize01 + channelIconSize001 !important;
+            height: channelIconSize + channelIconSize01 + channelIconSize001 !important;
+        }
+        ytd-rich-grid-renderer .yt-spec-avatar-shape--cairo-refresh.yt-spec-avatar-shape--live-ring::after{
+            width: channelIconSize + channelIconSize01 + channelIconSize001 !important;
+            height: channelIconSize + channelIconSize01 + channelIconSize001 !important;
+            inset: auto !important;
+        }
+    }
+    
+    
+    /* Contents margin size */
+    if(marginSize){
+        h3.ytd-rich-grid-media{
+            margin: marginTitleTop 0 marginTitleBottom 0 !important
+        }
+        #avatar-container.ytd-rich-grid-media{
+            margin-top: marginIconTop + marginIconTop01 !important;
+            margin-right: marginIconRight + marginIconRight01 !important
+        }
+        #meta.ytd-rich-grid-media{
+            padding-right: titlePaddingRight !important;
+        }
+    }
+    
+    
+    if(menu){
+        ytd-menu-renderer.ytd-rich-grid-media{
+            right: menuPosition !important;
+        }
+        ytd-menu-renderer .ytd-menu-renderer[style-target=button]{
+            width: menuSize !important;
+            height: menuSize !important;
+        }
+    }
+    
+    
+    if(roundness){
+        ytd-thumbnail a.ytd-thumbnail, ytd-thumbnail:before{
+            border-radius: thumbnailRoundness !important
+        }
+        ytd-playlist-thumbnail a.ytd-playlist-thumbnail, ytd-playlist-thumbnail:before{
+            border-radius: thumbnailRoundness !important
+        }
+        .collections-stack-wiz__collection-stack1--large,
+        .collections-stack-wiz__collection-stack2,
+        .collections-stack-wiz__collection-stack1--medium{
+            border-radius: thumbnailRoundness !important
+        }
+        .yt-spec-avatar-shape__image, #avatar.ytd-video-owner-renderer, yt-img-shadow, .yt-spec-avatar-shape--cairo-refresh.yt-spec-avatar-shape--live-ring::after{
+            border-radius: iconRoundness !important;
+        }
+        
+    }
+    
+    
+    
+    /* Others */
+    if(channelGrid){
+        ytd-two-column-browse-results-renderer.grid:not(.grid-disabled){
+            max-width: channelGridWidth !important;
+        }
+        ytd-two-column-browse-results-renderer.grid-6-columns, .grid-6-columns.ytd-two-column-browse-results-renderer{
+            width: channelGridWidth !important;
+        }
+    }
+        
+    if(player){
+        ytd-watch-flexy[rounded-player-large][default-layout] #ytd-player.ytd-watch-flexy{
+                border-radius: playerRoundness100 + playerRoundness !important;
+        }
+
+    }
+        
+    if(subButton){
+        html .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled {
+            color: subColor !important;
+            background: subBackground !important;
+        }
+    }
+
+    if(description){
+        #description.ytd-watch-metadata{
+            border-radius: descriptionRoundness !important;
+            background: descriptionColor !important;
+        }
+        ytd-rich-metadata-renderer[rounded]{
+            border-radius: descriptionRoundness !important;
+        }
+        ytd-rich-metadata-renderer{
+            background: descriptionColor !important;
+        }
+        yt-interaction.rounded-large .fill.yt-interaction, yt-interaction.rounded-large .stroke.yt-interaction{
+            border-radius: descriptionRoundness !important;
+        }
+            
+        if(shortRemix){
+            ytd-reel-shelf-renderer.ytd-structured-description-content-renderer{
                 display: none !important;
             }
         }
-        
-        
-        /* Contents text size */
-        if(textSize){
-            #video-title.ytd-rich-grid-media{
-                font-size: titleText + titleText01 + titleText001 !important;
-            }
-            ytd-rich-grid-renderer #text.ytd-channel-name{
-                font-size: channelText + channelText01 + channelText001 !important;
-            }
-            ytd-video-meta-block[rich-meta] #metadata-line.ytd-video-meta-block{
-                font-size: metaText + metaText01 + metaText001 !important;
+        if(transcription){
+            ytd-video-description-transcript-section-renderer{
+                display: none !important;
             }
         }
-        
-        
-        /* Channel icon size */
-        if(iconSize){
-            ytd-rich-grid-renderer .yt-spec-avatar-shape--avatar-size-medium{
-                width: channelIconSize + channelIconSize01 + channelIconSize001 !important;
-                height: channelIconSize + channelIconSize01 + channelIconSize001 !important;
-            }
-            ytd-rich-grid-renderer .yt-spec-avatar-shape--cairo-refresh.yt-spec-avatar-shape--live-ring::after{
-                width: channelIconSize + channelIconSize01 + channelIconSize001 !important;
-                height: channelIconSize + channelIconSize01 + channelIconSize001 !important;
-                inset: auto !important;
+        if(channelDesctiption){
+            #header.ytd-video-description-infocards-section-renderer{
+                display: none !important;
             }
         }
-        
-        
-        /* Contents margin size */
-        if(marginSize){
-            h3.ytd-rich-grid-media{
-                margin: marginTitleTop 0 marginTitleBottom 0 !important
-            }
-            #avatar-container.ytd-rich-grid-media{
-                margin-top: marginIconTop + marginIconTop01 !important;
-                margin-right: marginIconRight + marginIconRight01 !important
-            }
-            #meta.ytd-rich-grid-media{
-                padding-right: titlePaddingRight !important;
+        if(socialLinks){
+            #social-links.ytd-video-description-infocards-section-renderer{
+                display: none !important;
             }
         }
-        
-        
-        if(menu){
-            ytd-menu-renderer.ytd-rich-grid-media{
-                right: menuPosition !important;
-            }
-            ytd-menu-renderer .ytd-menu-renderer[style-target=button]{
-                width: menuSize !important;
-                height: menuSize !important;
-            }
+        .arrow-container.ytd-video-description-infocards-section-renderer{
+            background-color: fixSocialArrow !important;
         }
-        
-        
-        if(roundness){
-            ytd-thumbnail a.ytd-thumbnail, ytd-thumbnail:before{
-                border-radius: thumbnailRoundness !important
-            }
-            ytd-playlist-thumbnail a.ytd-playlist-thumbnail, ytd-playlist-thumbnail:before{
-                border-radius: thumbnailRoundness !important
-            }
-            .collections-stack-wiz__collection-stack1--large,
-            .collections-stack-wiz__collection-stack2,
-            .collections-stack-wiz__collection-stack1--medium{
-                border-radius: thumbnailRoundness !important
-            }
-            .yt-spec-avatar-shape__image, #avatar.ytd-video-owner-renderer, yt-img-shadow, .yt-spec-avatar-shape--cairo-refresh.yt-spec-avatar-shape--live-ring::after{
-                border-radius: iconRoundness !important;
-            }
-            
-        }
-        
-        
-        
-        /* Others */
-        if(channelGrid){
-            ytd-two-column-browse-results-renderer.grid:not(.grid-disabled){
-                max-width: channelGridWidth !important;
-            }
-            ytd-two-column-browse-results-renderer.grid-6-columns, .grid-6-columns.ytd-two-column-browse-results-renderer{
-                width: channelGridWidth !important;
-            }
-        }
-            
-        if(player){
-            ytd-watch-flexy[rounded-player-large][default-layout] #ytd-player.ytd-watch-flexy{
-                    border-radius: playerRoundness100 + playerRoundness !important;
-            }
-    
-        }
-            
-        if(subButton){
-            html .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled {
-                color: subColor !important;
-                background: subBackground !important;
-            }
-        }
-    
-        if(description){
-            #description.ytd-watch-metadata{
-                border-radius: descriptionRoundness !important;
-                background: descriptionColor !important;
-            }
-            yt-interaction.rounded-large .fill.yt-interaction, yt-interaction.rounded-large .stroke.yt-interaction{
-                border-radius: descriptionRoundness !important;
-            }
-                
-            if(shortRemix){
-                ytd-reel-shelf-renderer.ytd-structured-description-content-renderer{
-                    display: none !important;
-                }
-            }
-            if(transcription){
-                ytd-video-description-transcript-section-renderer{
-                    display: none !important;
-                }
-            }
-            if(channelDesctiption){
-                #header.ytd-video-description-infocards-section-renderer{
-                    display: none !important;
-                }
+        if(videosDescription){
+            #infocards-section.ytd-video-description-infocards-section-renderer{
+                display: none !important;
             }
             if(socialLinks){
-                #social-links.ytd-video-description-infocards-section-renderer{
-                    display: none !important;
-                }
-            }
-            .arrow-container.ytd-video-description-infocards-section-renderer{
-                background-color: fixSocialArrow !important;
-            }
-            if(videosDescription){
-                #infocards-section.ytd-video-description-infocards-section-renderer{
-                    display: none !important;
-                }
-                if(socialLinks){
-                    if(videosDescription){
-                        ytd-video-description-infocards-section-renderer{
-                            padding: 0px 0 !important;
-                        }
+                if(videosDescription){
+                    ytd-video-description-infocards-section-renderer{
+                        padding: 0px 0 !important;
                     }
                 }
             }
         }
     }
+}
