@@ -1,95 +1,134 @@
 /* ==UserStyle==
 @name           Resize YouTube Grid
 @namespace      Igusy
-@version        2.0.2
+@version        2.1.0
 @description    style for youtube
 @author         Igusy
 @license        MIT
 @preprocessor   stylus
 
+@var checkbox isGridOptionsEnabled   "⬇️ Grid Options ⬇️"        1
+@var checkbox isGridPaddingEnabled   "･Padding (px)"               1
+@var number gridPadding              "└─ "                       [10, 0, 1000, 0.1, 'px']
 
-@var checkbox gridOption             "Grid Padding"                   1
-@var range gridPadding               "├─ 1 Steps"                   [10, 0, 99, 1, 'px']
-@var range gridPadding100            "└─ 100 Steps"                 [0, 0, 5000, 100, 'px']
 
-
-@var checkbox shelfRender            "Disable Shelf (e.g. Shorts, News)"        0
+@var checkbox isShelfDisabled        "･Disable Shelf (e.g. Shorts, News)"       0
 @var checkbox homeShelf              "├─ Home"                                1
 @var checkbox subShelf               "└─ Subscription"                        1
 
 
-@var checkbox changeContentsWidth    "Content Size"                             1
-@var range contentsWidth             "├─ Width (1 Steps)"                     [240, 10,  999, 1, 'px']
-@var range contentsWidth1000         "├─ Width (1000 Steps)"                  [0, 0, 10000, 1000, 'px']
-@var range maxcontentsWidth          "├─ Max Width (1 Steps)"                 [300, 10,  999, 1, 'px']
-@var range maxcontentsWidth1000      "├─ Max Width (1000 Steps)"              [0, 0, 10000, 1000, 'px']
-@var range sideMargin                "├─ Margin Side (1 Steps)"               [5, 0, 99, 1, 'px']
-@var range sideMargin100             "├─ Margin Side (100 Steps)"             [0, 0, 5000, 100, 'px']
-@var range bottomMargin              "├─ Margin Bottom (1 Steps)"             [14, 0, 99, 1, 'px']
-@var range bottomMargin100           "└─ Margin Bottom (100 Steps)"           [0, 0, 5000, 100, 'px']
+@var checkbox isContentSizeEnabled  "･Content Size (px)"           1
+@var number contentWidth              "├─ Width"                 [240, 0, 100000, 0.1, 'px']
+@var number maxContentWidth           "├─ Max Width"             [300, 0, 100000, 0.1, 'px']
+@var number contentSideMargin         "├─ Margin Side"           [5, 0, 10000, 0.1, 'px']
+@var number contentBottomMargin       "└─ Margin Bottom"         [14, 0, 10000, 0.1, 'px']
 
 
-@var checkbox textSize               "Text Size"                               1
-@var range titleText                 "├─ Title (1 Steps)"                    [1, 0, 20, 1, 'rem']
-@var range titleText01               "├─ Title (0.1 Steps)"                  [0.4, 0, 0.9, 0.1, 'rem']
-@var range titleText001              "├─ Title (0.01 Steps)"                 [0, 0, 0.09, 0.01, 'rem']
-@var range channelText               "├─ Channel Name (1 Steps)"             [1, 0, 20, 1, 'rem']
-@var range channelText01             "├─ Channel Name (0.1 Steps)"           [0.3, 0, 0.9, 0.1, 'rem']
-@var range channelText001            "├─ Channel Name (0.01 Steps)"          [0, 0, 0.09, 0.01, 'rem']
-@var range metaText                  "├─ Meta Text (1 Steps)"                [1, 0, 20, 1, 'rem']
-@var range metaText01                "├─ Meta Text (0.1 Steps)"              [0.3, 0, 0.9, 0.1, 'rem']
-@var range metaText001               "└─ Meta Text (0.01 Steps)"             [0, 0, 0.09, 0.01, 'rem']
+@var checkbox isContentTextEnabled  "･Text Size (rem)"        1
+@var number titleText               "├─ Title"              [1.4, 0, 100, 0.01, 'rem']
+@var number channelText             "├─ Channel"            [1.3, 0, 100, 0.01, 'rem']
+@var number metaText                "└─ Meta Text"          [1.3, 0, 100, 0.01, 'rem']
 
 
-@var checkbox iconSize               "Channel Icon Size"              0
-@var range channelIconSize           "├─ 1 Steps"                   [3, 0, 100, 1, 'rem']
-@var range channelIconSize01         "├─ 0.1 Steps"                 [0.4, 0, 0.9, 0.1, 'rem']
-@var range channelIconSize001        "└─ 0.01 Steps"                [0, 0, 0.09, 0.01, 'rem']
+@var checkbox isTitleLineClampEnabled   "･Title Line Clamp"             0
+@var range titleLineClamp               "└─ "                         [3, 1, 5, 1]
 
 
-@var checkbox marginSize             "Details Margin"                    1
-@var range marginTitleTop            "├─ Title Top"                    [9, 0, 100, 1, 'px']
-@var range marginTitleBottom         "├─ Title Bottom"                 [2, 0, 100, 1, 'px']
-@var range marginIconTop             "├─ Avator Top 1 Steps"           [9, 0, 100, 1, 'px']
-@var range marginIconTop01           "├─ Avator Top 0.1 Steps"         [0, 0, 0.9, 0.1, 'px']
-@var range marginIconRight           "├─ Avator Right 1 Steps"         [10, 0, 100, 1, 'px']
-@var range marginIconRight01         "├─ Avator Right 0.1 Steps"       [0, 0, 0.9, 0.1, 'px']
-@var range titlePaddingRight         "└─ Title Padding Right"          [20, 0, 100, 1, 'px']
+@var checkbox isContentIconEnabled   "･Channel Icon Size (rem)"         1
+@var number channelIconSize            "└─ "                          [3.40, 0, 100, 0.01, 'rem']
 
 
-@var checkbox menu                   "Menu Icon"                      1
-@var range menuSize                  "├─ Size"                      [30, 0, 100, 1, 'px']
-@var range menuPosition              "└─ Position"                  [-10, -50, 50, 1, 'px']
+@var checkbox isContentMarginEnabled  "･Details Margin (px)"            1
+@var number marginTitleTop            "├─ Title Top"                  [9, 0, 10000, 0.1, 'px']
+@var number marginTitleBottom         "├─ Title Bottom"               [2, 0, 10000, 0.1, 'px']
+@var number marginIconTop             "├─ Avator Top"                 [9, 0, 10000, 0.1, 'px']
+@var number marginIconRight           "├─ Avator Right"               [10, 0, 10000, 0.1, 'px']
+@var number metaPaddingRight          "└─ Padding Right"              [20, 0, 10000, 0.1, 'px']
 
 
-@var checkbox roundness              "Roundness"                             0
-@var range thumbnailRoundness        "├─ Thumbnail"                        [0, 0, 100, 1, 'px']
-@var range iconRoundness             "└─ Avatar Icon"                      [5, 0, 50, 1, '%']
+@var checkbox isContentMenuEnabled   "･Menu Icon (px)"                 1
+@var number contentMenuSize          "├─ Size"                       [30, 0, 1000, 0.1, 'px']
+@var number contentMenuPosition      "└─ Position"                   [-10, -1000, 1000, 0.1, 'px']
 
 
-@var checkbox channelGrid            "Channel Page Grid"                 0
-@var range channelGridWidth          "└─ Grid width"                   [90, 0, 100, 1, '%']
-@var checkbox player                 "Player Roundness"                  0
-@var range playerRoundness           "├─ 1 Steps"                      [0, 0, 100, 1, 'px']
-@var range playerRoundness100        "└─ 100 Steps"                    [0, 0, 5000, 100, 'px']
-@var checkbox subButton              "Button Before Subscription"        0
-@var color subColor                  "├─ Text color"                   #f1f1f1
-@var color subBackground             "└─ Background"                   rgba(255, 255, 255, 0.1)
-@var checkbox description            "Watch Page Description"            0
-@var range descriptionRoundness      "├─ Roundness"                    [0, 0, 100, 1, 'px']
-@var color descriptionColor          "├─ Background"                   #ffffff0a
-@var checkbox shortRemix             "├─ Hide shorts remixing"         1
-@var checkbox transcription          "├─ Hide transcription"           1
-@var checkbox channelDesctiption     "├─ Hide channel"                 0
-@var checkbox socialLinks            "├─ Hide social links"            0
-@var color fixSocialArrow            "├─ Fix arrow in dark mode"       #222
-@var checkbox videosDescription      "└─ Hide videos"                  1
+@var checkbox isOtherContentOptionEnabled  "⬇️ Other Contents Options ⬇️"             0
+@var checkbox isHorizontalContentEnabled   "･Horizontal Contents Menu Position (px)"    1
+@var number menuVerticalPosition           "├─ Vertical"                [-1, -1000, 1000, 0.1, 'px']
+@var number menuHorizontalPosition         "└─ Horizontal"              [-5, -1000, 1000, 0.1, 'px']
+@var checkbox isLimitShortsHeightEnabled   "･Limiting Shorts Height"      0
+@var checkbox isChannelPageEnabled         "･Channel Page"                1
+@var number channelGridWidth               "└─ Grid Width"              [90, 0, 100, 0.1, '%']
+@var checkbox isRecommendVideoEnabled      "･Recommended Videos on Channel Page"     1
+@var checkbox recommendVideoWidth          "└─ Use Grid Content Width"             1
+@var checkbox isSearchResultEnabled        "･Search Result"                          1
+@var checkbox searchResultWidth            "└─ Use Grid Content Width"             1
+
+
+@var checkbox isRoundnessOptionEnabled   "⬇️ Other Roundness ⬇️"         0
+@var number thumbnailRoundness           "･Thumbnail (px)"                 [0, 0, 10000, 0.1, 'px']
+@var number imagesRoundness              "･Avator & Images (%)"            [5, 0, 50, 0.1, '%']
+@var number filterBarRoundness           "･Filter Bar (px)"                [0, 0, 1000, 0.1, 'px']
+@var number buttonsRoundness             "･Buttons (px)"                   [0, 0, 1000, 0.1, 'px']
+@var number clickVideoRoundness          "･Clicking Video (px)"            [0, 0, 10000, 0.1, 'px']
+@var number menuRoundness                "･Menu (px)"                      [0, 0, 10000, 0.1, 'px']
+@var number searchBarRoundness           "･Search Bar (px)"                [0, 0, 1000, 0.1, 'px']
+@var number searchSuggestionRoundness    "･Search Suggest (px)"            [0, 0, 10000, 0.1, 'px']
+@var number playerRoundness              "･Player Roundness (px)"          [0, 0, 100000, 0.1, 'px']
+@var number channelPlayerRoundness       "･Channel Page Player (px)"       [0, 0, 10000, 0.1, 'px']
+@var number descriptionRoundness         "･Player Page Description (px)"   [0, 0, 100000, 0.1, 'px']
+
+
+@var checkbox isColorOptionEnabled      "⬇️ Other Color Options ⬇️"     0
+@var checkbox isSearchBarColorEnabled   "･Search Bar (Only Dark Mode)"    0
+@var color searchBarColor               "├─ Bar"                        #7a7a7a14
+@var color searchButtonColor            "├─ Button"                     #ffffff14
+@var color suggestColor                 "├─ Suggest"                    #1e1e1e80
+@var number suggestBlur                 "└─ Suggest Box Blur (px)"      [20, 0, 100, 0.1, 'px']
+@var checkbox isSeekbarColorEnabled     "･Seek bar"                       0
+@var color seekBarColor                 "└─ "                           #fff
+@var checkbox isPlayerPageEnabled       "･Player Page"                    0
+@var color descriptionColor             "├─ Description"                #ffffff0a
+@var color liveChatColor                "└─ Live Chat"                  #0000004d
+@var checkbox isBeforeSubButtonColorEnabled   "･Button Before Subscription"     0
+@var color subColorBefore               "├─ Text color"                 #f1f1f1
+@var color subBackgroundBefore          "└─ Background"                 #ffffff1a
+
+
+@var checkbox isHideOptionEnabled    "⬇️ Hide Options ⬇️"              0
+@var checkbox hideCreateButton       "･Create button"                    0
+@var checkbox description            "･Description"                      0
+@var checkbox shortRemix             "├─ Shorts remixing?"             0
+@var checkbox hideHorizontalDesc     "├─ Horizontal Card List (Music?)"0
+@var checkbox hideYTMusicButton      "├─ YouTube Music Button"         0
+@var checkbox transcription          "├─ Transcription"                0
+@var checkbox channelDesctiption     "├─ Channel"                      0
+@var checkbox socialLinks            "├─ Social Links"                 0
+@var checkbox videosDescription      "├─ Videos"                       0
+@var checkbox hideShopDesc           "└─ Shop?"                        0
+
+@var checkbox isExpandedSidebarEnable        "⬇️ Expanded Sidebar ⬇️"    0
+@var checkbox isSidebarWidthEnabled          "･Width (px)"                 1
+@var number sidebarWidth                     "└─ "                       [210, 0, 100000, 0.1, 'px']
+
+@var checkbox isSidebarInnerWidthEnabled     "･Inner Width"                1
+@var checkbox sidebarInnerWidth              "├─ 100% Width"             1
+@var number sidebarPadding                   "└─ Padding (px)"           [9, 0, 10000, 0.1, 'px']
+
+@var checkbox isSidebarItemEnabled      "･Items"                      1
+@var number sidebarItemHeight           "├─ Height (px)"            [40, 0, 1000, 0.1, 'px']
+@var number sidebarItemPadding          "├─ Padding (px)"           [3, 0, 1000, 0.1, 'px']
+@var number sidebarItemSectionFontSize  "├─ Section Title Font Size (rem)"  [1.5, 0, 100, 0.01, 'rem']
+@var range sidebarItemTitleLineClamp    "├─ Title Line Clamp"       [2, 1, 4, 1]
+@var number sidebarItemFontSize         "├─ Font Size (rem)"        [1.35, 0, 100, 0.01, 'rem']
+@var number sidebarIconMargin           "├─ Icon Margin (px)"       [15, 0, 1000, 0.1, 'px']
+@var number sidebarIconSize             "├─ Icon Size (px)"         [22, 0, 1000, 0.1, 'px']
+@var number sidebarItemRoundness        "└─ Roundness (px)"         [0, 0, 1000, 0.1, 'px']
 
 ==/UserStyle== */
 
 @-moz-document url("https://www.youtube.com/") {
     /* Shelf render (shorts, news ...) */
-    if(shelfRender){
+    if(isShelfDisabled){
         if(homeShelf){
             ytd-rich-grid-renderer>#contents>ytd-rich-section-renderer:has(>#content>ytd-rich-shelf-renderer){
                 display: none !important;
@@ -100,7 +139,7 @@
 
 @-moz-document url("https://www.youtube.com/feed/subscriptions") {
     /* Shelf render (shorts, news ...) */
-    if(shelfRender){
+    if(isShelfDisabled){
         if(subShelf){
             ytd-rich-grid-renderer>#contents>ytd-rich-section-renderer:has(>#content>ytd-rich-shelf-renderer){
                 display: none !important;
@@ -111,27 +150,26 @@
 
 @-moz-document url-prefix("https://www.youtube.com/") {
     
-    
 /* YouTube Grid Contents */
+if(isGridOptionsEnabled){
     
-
     /* Grid padding */
-    if(gridOption){
+    if(isGridPaddingEnabled){
         #contents.ytd-rich-grid-renderer{
-            padding-right: gridPadding100 + gridPadding !important;
-            padding-left: gridPadding100 + gridPadding !important;
+            padding-right: gridPadding !important;
+            padding-left: gridPadding !important;
             width: auto !important;
         }
     }
 
 
     /* Contents width */
-    if(changeContentsWidth){
+    if(isContentSizeEnabled){
         ytd-rich-item-renderer[rendered-from-rich-grid]{
-            width: contentsWidth1000 + contentsWidth !important;/**/
-            max-width: maxcontentsWidth1000 + maxcontentsWidth !important;/**/
+            width: contentWidth !important;/**/
+            max-width: maxContentWidth!important;/**/
             flex: 1 0 auto !important;/**/
-            margin: 0px sideMargin100+sideMargin bottomMargin+bottomMargin100 sideMargin100+sideMargin !important;
+            margin: 0px contentSideMargin contentBottomMargin contentSideMargin !important;
         }
         ytd-ghost-grid-renderer{
             display: none !important;
@@ -140,7 +178,7 @@
             justify-content: center !important;
         }
         ytd-continuation-item-renderer{
-            min-width: contentsWidth !important;
+            min-width: contentWidth !important;
             flex: 0 0 0 !important;
             height: auto !important;
             justify-content: center;
@@ -148,127 +186,348 @@
         #attached-survey.ytd-rich-grid-media{
             display: none !important;
         }
+        ytd-rich-section-renderer:has(ytd-inline-survey-renderer){
+            display:none !important;
+        }
     }
     
     
     /* Contents text size */
-    if(textSize){
+    if(isContentTextEnabled){
         #video-title.ytd-rich-grid-media{
-            font-size: titleText + titleText01 + titleText001 !important;
+            font-size: titleText !important;
         }
         ytd-rich-grid-renderer #text.ytd-channel-name{
-            font-size: channelText + channelText01 + channelText001 !important;
+            font-size: channelText !important;
         }
         ytd-video-meta-block[rich-meta] #metadata-line.ytd-video-meta-block{
-            font-size: metaText + metaText01 + metaText001 !important;
+            font-size: metaText !important;
+        }
+        /* Play list */
+        .yt-lockup-metadata-view-model-wiz--standard .yt-lockup-metadata-view-model-wiz__title{
+            font-size: titleText !important;
+        }
+        .yt-content-metadata-view-model-wiz--medium-text .yt-content-metadata-view-model-wiz__metadata-text{
+            font-size: metaText !important;
         }
     }
     
     
+    /* title line clamp */
+    if(isTitleLineClampEnabled){
+        #video-title.ytd-rich-grid-media{
+            -webkit-line-clamp: titleLineClamp !important;
+            max-height: fit-content !important;
+        }
+    }
+
+    
     /* Channel icon size */
-    if(iconSize){
+    if(isContentIconEnabled){
         ytd-rich-grid-renderer .yt-spec-avatar-shape--avatar-size-medium{
-            width: channelIconSize + channelIconSize01 + channelIconSize001 !important;
-            height: channelIconSize + channelIconSize01 + channelIconSize001 !important;
+            width: channelIconSize !important;
+            height: channelIconSize !important;
         }
         ytd-rich-grid-renderer .yt-spec-avatar-shape--cairo-refresh.yt-spec-avatar-shape--live-ring::after{
-            width: channelIconSize + channelIconSize01 + channelIconSize001 !important;
-            height: channelIconSize + channelIconSize01 + channelIconSize001 !important;
+            width: channelIconSize !important;
+            height: channelIconSize !important;
             inset: auto !important;
         }
     }
     
     
     /* Contents margin size */
-    if(marginSize){
+    if(isContentMarginEnabled){
         h3.ytd-rich-grid-media{
             margin: marginTitleTop 0 marginTitleBottom 0 !important
         }
         #avatar-container.ytd-rich-grid-media{
-            margin-top: marginIconTop + marginIconTop01 !important;
-            margin-right: marginIconRight + marginIconRight01 !important
+            margin-top: marginIconTop !important;
+            margin-right: marginIconRight !important;
         }
         #meta.ytd-rich-grid-media{
-            padding-right: titlePaddingRight !important;
+            padding-right: metaPaddingRight !important;
         }
     }
     
     
-    if(menu){
+    if(isContentMenuEnabled){
         ytd-menu-renderer.ytd-rich-grid-media{
-            right: menuPosition !important;
+            right: contentMenuPosition !important;
         }
         ytd-menu-renderer .ytd-menu-renderer[style-target=button]{
-            width: menuSize !important;
-            height: menuSize !important;
+            width: contentMenuSize !important;
+            height: contentMenuSize !important;
+        }
+    }
+}
+
+
+
+if(isOtherContentOptionEnabled){
+    
+    if(isHorizontalContentEnabled){
+        ytd-menu-renderer.ytd-grid-video-renderer{
+            top: menuVerticalPosition !important;
+            right: menuHorizontalPosition !important;
         }
     }
     
-    
-    if(roundness){
-        ytd-thumbnail a.ytd-thumbnail, ytd-thumbnail:before{
-            border-radius: thumbnailRoundness !important
+    if(isLimitShortsHeightEnabled){
+        .shortsLockupViewModelHostThumbnailContainerCustomDimensions{
+            max-height: (contentWidth / 16) * 9 !important;
         }
-        ytd-playlist-thumbnail a.ytd-playlist-thumbnail, ytd-playlist-thumbnail:before{
-            border-radius: thumbnailRoundness !important
-        }
-        .collections-stack-wiz__collection-stack1--large,
-        .collections-stack-wiz__collection-stack2,
-        .collections-stack-wiz__collection-stack1--medium{
-            border-radius: thumbnailRoundness !important
-        }
-        .yt-spec-avatar-shape__image, #avatar.ytd-video-owner-renderer, yt-img-shadow, .yt-spec-avatar-shape--cairo-refresh.yt-spec-avatar-shape--live-ring::after{
-            border-radius: iconRoundness !important;
-        }
-        
     }
     
-    
-    
-    /* Others */
-    if(channelGrid){
+    if(isChannelPageEnabled){
         ytd-two-column-browse-results-renderer.grid:not(.grid-disabled){
             max-width: channelGridWidth !important;
         }
-        ytd-two-column-browse-results-renderer.grid-6-columns, .grid-6-columns.ytd-two-column-browse-results-renderer{
-            width: channelGridWidth !important;
-        }
     }
-        
-    if(player){
-        ytd-watch-flexy[rounded-player-large][default-layout] #ytd-player.ytd-watch-flexy{
-                border-radius: playerRoundness100 + playerRoundness !important;
-        }
+    
+    if(isRecommendVideoEnabled){
+        if(recommendVideoWidth){
+            yt-horizontal-list-renderer[should-use-mixed-list-height] .shortsLockupViewModelHostThumbnailContainerCustomDimensions{
+                height: (contentWidth / 16) * 9 !important;
+            }
 
-    }
-        
-    if(subButton){
-        html .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled {
-            color: subColor !important;
-            background: subBackground !important;
+            yt-horizontal-list-renderer[should-use-mixed-list-height]{
+                --ytd-grid-video-width: contentWidth !important;
+                --ytd-grid-video-thumbnail-height: (contentWidth / 16) * 9 !important;
+            }
         }
     }
+    
+    if(isSearchResultEnabled){
+        if(searchResultWidth){
+            ytd-search ytd-video-renderer[use-bigger-thumbs][bigger-thumbs-style="BIG"] ytd-thumbnail.ytd-video-renderer{
+                max-width: maxContentWidth !important;
+                width: contentWidth !important;
+            }
+            ytd-search .yt-collection-thumbnail-view-model,ytd-search .yt-lockup-view-model-wiz__content-image{
+                max-width: maxContentWidth !important;
+                width: contentWidth !important;
+                flex: auto !important;
+            }
+            ytd-search .yt-lockup-view-model-wiz--horizontal .yt-lockup-view-model-wiz__content-image{
+                flex: auto !important;
+            }
+            ytd-search ytd-promoted-sparkles-web-renderer[web-search-layout][use-bigger-thumbs][bigger-thumbs-style="BIG"] #thumbnail-container.ytd-promoted-sparkles-web-renderer{
+                max-width: maxContentWidth !important;
+                width: contentWidth !important;
+            }
+            ytd-search ytd-channel-renderer[use-bigger-thumbs][bigger-thumb-style="BIG"] #avatar-section.ytd-channel-renderer{
+                max-width: maxContentWidth !important;
+                width: contentWidth !important;
+            }
+            ytd-promoted-video-renderer[use-bigger-thumbs][bigger-thumbs-style="BIG"] ytd-thumbnail.ytd-promoted-video-renderer{
+                max-width:maxContentWidth !important;
+                width: contentWidth !important;
+            }
+        }   
+    }
+}
 
-    if(description){
+
+
+if(isRoundnessOptionEnabled){
+    
+    /* Thunbnail */
+    ytd-thumbnail a.ytd-thumbnail,
+    ytd-thumbnail:before{
+        border-radius: thumbnailRoundness !important;
+    }
+    /* Playlist Thunbnail */
+    ytd-playlist-thumbnail[size="medium"] a.ytd-playlist-thumbnail,
+    ytd-playlist-thumbnail[size="medium"]::before,
+    .yt-thumbnail-view-model--medium{
+        border-radius: thumbnailRoundness !important;
+    }
+    .collections-stack-wiz__collection-stack1--large,
+    .collections-stack-wiz__collection-stack2,
+    .collections-stack-wiz__collection-stack1--medium{
+        border-radius: thumbnailRoundness !important;
+    }
+    /* Looking for something different? */
+    ytd-feed-nudge-renderer[rounded-container] #dismissible.ytd-feed-nudge-renderer{
+        border-radius: thumbnailRoundness !important;
+    }
+    ytd-feed-nudge-renderer[trim-style="gradient-trim-1"] #dismissible.ytd-feed-nudge-renderer::before{
+        border-top-left-radius: thumbnailRoundness !important;
+        border-top-right-radius: thumbnailRoundness !important;
+    }
+    #content-wrapper.ytd-feed-nudge-renderer{
+        border-bottom-left-radius: thumbnailRoundness !important;
+        border-bottom-right-radius: thumbnailRoundness !important;
+    }
+    /* Shorts */
+    .shortsLockupViewModelHostThumbnailContainerRounded{
+        border-radius: thumbnailRoundness !important;
+    }
+    /* Images */
+    .yt-spec-avatar-shape__image, #avatar.ytd-video-owner-renderer, yt-img-shadow, .yt-spec-avatar-shape--cairo-refresh.yt-spec-avatar-shape--live-ring::after{
+        border-radius: imagesRoundness !important;
+    }
+    .yt-video-attribute-view-model--image-large .yt-video-attribute-view-model__hero-section{
+        border-radius: imagesRoundness !important;
+    }
+    /* Filter Bar */
+    yt-chip-cloud-chip-renderer{
+        border-radius: filterBarRoundness !important;
+    }
+    /* Buttons */
+    .yt-spec-button-shape-next--size-m, .ytp-tooltip-text-wrapper, .ytp-tooltip.ytp-preview:not(.ytp-text-detail), .ytp-tooltip-bg, .ytp-tooltip:not(.ytp-preview) .ytp-tooltip-text {
+        border-radius: buttonsRoundness !important;
+    }
+    ytd-live-chat-frame[round-background] #show-hide-button.ytd-live-chat-frame > ytd-toggle-button-renderer.ytd-live-chat-frame, ytd-live-chat-frame[round-background] #show-hide-button.ytd-live-chat-frame > ytd-button-renderer.ytd-live-chat-frame{
+        border-radius: buttonsRoundness !important;
+    }
+    /* Arrow */
+    .arrow.yt-horizontal-list-renderer{
+        border-radius: buttonsRoundness !important;
+    }
+    /* Notification */
+    yt-icon-button.ytd-masthead:hover, ytd-topbar-menu-button-renderer.ytd-masthead:hover, ytd-notification-topbar-button-renderer.ytd-masthead:hover{
+        border-radius: buttonsRoundness !important;
+    }
+    yt-interaction.circular .fill.yt-interaction, yt-interaction.circular .stroke.yt-interaction, yt-interaction.circular .fill.yt-interaction, yt-interaction.circular .stroke.yt-interaction{
+        border-radius: buttonsRoundness !important;
+    }
+    /* Click Video */
+    yt-interaction.extended .fill.yt-interaction, yt-interaction.extended .stroke.yt-interaction{
+        border-radius: clickVideoRoundness !important;
+    }
+    /* Player menu */
+    .ytp-settings-menu{
+        border-radius: menuRoundness !important;
+    }
+    /* Popup Menu */
+    ytd-multi-page-menu-renderer,
+    ytd-menu-popup-renderer{
+        border-radius: menuRoundness !important;
+    }
+    /* Search Bar */
+    .ytSearchboxComponentSearchButton{
+        border-top-right-radius: searchBarRoundness !important;
+        border-bottom-right-radius: searchBarRoundness !important;
+    }
+    .ytSearchboxComponentInputBox{
+        border-top-left-radius: searchBarRoundness !important;
+        border-bottom-left-radius: searchBarRoundness !important;
+    }
+    /* Search Suggestion */
+    .ytSearchboxComponentSuggestionsContainer{
+        border-radius: searchSuggestionRoundness !important;
+    }
+    ytd-watch-flexy[rounded-player-large][default-layout] #ytd-player.ytd-watch-flexy{
+            border-radius: playerRoundness !important;
+    }
+    /* Channel Page Player */
+    ytd-channel-video-player-renderer[rounded] #player.ytd-channel-video-player-renderer{
+        border-radius: channelPlayerRoundness !important;
+    }
+    /* Description */
         #description.ytd-watch-metadata{
             border-radius: descriptionRoundness !important;
-            background: descriptionColor !important;
         }
         ytd-rich-metadata-renderer[rounded]{
             border-radius: descriptionRoundness !important;
         }
-        ytd-rich-metadata-renderer{
-            background: descriptionColor !important;
-        }
         yt-interaction.rounded-large .fill.yt-interaction, yt-interaction.rounded-large .stroke.yt-interaction{
             border-radius: descriptionRoundness !important;
         }
-            
+        .ytVideoMetadataCarouselViewModelHost{
+            border-radius: descriptionRoundness !important;
+        }
+        ytd-live-chat-frame[rounded-container]:not([theater-watch-while]){
+            border-radius: descriptionRoundness !important;
+        }
+        ytd-live-chat-frame[rounded-container] iframe.ytd-live-chat-frame{
+            border-radius: descriptionRoundness !important;
+        }
+        
+}
+
+
+
+if(isColorOptionEnabled){
+    
+    /* Search Bar Color */
+    if(isSearchBarColorEnabled){
+        /* Only Dark Mode */
+        .ytSearchboxComponentInputBoxDark{
+            background-color: searchBarColor !important;
+        }
+        .ytSearchboxComponentSearchButtonDark{
+            background-color: searchButtonColor !important;
+        }
+        .ytSearchboxComponentSuggestionsContainer{
+            background-color: suggestColor !important;
+            backdrop-filter: blur(suggestBlur) !important;
+        }
+    }
+    
+    
+    /* Seek Bar Color */
+    if(isSeekbarColorEnabled){
+        .ytp-cairo-refresh .ytp-swatch-background-color{
+            background: seekBarColor !important;
+        }
+    }
+    
+    
+    if(isPlayerPageEnabled){
+        #description.ytd-watch-metadata{
+            background: descriptionColor !important;
+        }
+        ytd-rich-metadata-renderer{
+            background: descriptionColor !important;
+        }
+        .ytVideoMetadataCarouselViewModelHost{
+            background: descriptionColor !important;
+        }
+        /* Live Chat */
+        yt-live-chat-renderer, yt-live-chat-header-renderer{
+            background: liveChatColor !important;
+        }
+    }
+    
+    
+    if(isBeforeSubButtonColorEnabled){
+        html .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled {
+            color: subColorBefore !important;
+            background: subBackgroundBefore !important;
+        }
+    }
+}
+    
+
+
+if(isHideOptionEnabled){
+    if(hideCreateButton){
+        ytd-button-renderer:has(path[d="M20 12h-8v8h-1v-8H3v-1h8V3h1v8h8v1z"]){
+            display: none !important;
+        }
+    }
+    
+    
+    if(description){ 
         if(shortRemix){
             ytd-reel-shelf-renderer.ytd-structured-description-content-renderer{
                 display: none !important;
             }
         }
+        if(hideHorizontalDesc){
+            ytd-structured-description-content-renderer ytd-horizontal-card-list-renderer{
+                display: none !important;
+            }
+        }
+        if(hideYTMusicButton){
+            #footer-section:has(path[d="M12 4v9.38c-.73-.84-1.8-1.38-3-1.38-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V8h6V4h-7zM9 19c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm9-12h-5V5h5v2z"]){
+                display: none !important;
+            }
+        }
+        
         if(transcription){
             ytd-video-description-transcript-section-renderer{
                 display: none !important;
@@ -284,20 +543,103 @@
                 display: none !important;
             }
         }
-        .arrow-container.ytd-video-description-infocards-section-renderer{
-            background-color: fixSocialArrow !important;
-        }
         if(videosDescription){
             #infocards-section.ytd-video-description-infocards-section-renderer{
                 display: none !important;
             }
-            if(socialLinks){
-                if(videosDescription){
+            if(channelDesctiption){
+                if(socialLinks){
                     ytd-video-description-infocards-section-renderer{
                         padding: 0px 0 !important;
                     }
                 }
             }
         }
+        if(hideShopDesc){
+            ytd-merch-shelf-renderer{
+                display: none !important;
+            }
+        }
     }
+}
+
+    
+
+if(isExpandedSidebarEnable){
+    
+    if(isSidebarWidthEnabled){
+        ytd-guide-renderer.ytd-app, tp-yt-app-drawer[persistent]{
+            width: sidebarWidth !important;
+        }
+        ytd-app[guide-persistent-and-visible] ytd-page-manager.ytd-app{
+            margin-left: sidebarWidth !important;
+        }
+        ytd-app{
+            --app-drawer-width: sidebarWidth !important;
+        }
+    }
+    
+    
+    if(isSidebarInnerWidthEnabled){
+        if(sidebarInnerWidth){
+            ytd-guide-entry-renderer{
+                width: 100% !important;
+            }
+        }
+        tp-yt-paper-item.ytd-guide-entry-renderer{
+            padding-right: sidebarPadding !important;
+            padding-left: sidebarPadding !important;
+        }
+    }
+
+    
+    if(isSidebarItemEnabled){
+        ytd-guide-section-renderer{
+            --paper-item-min-height: sidebarItemHeight !important;
+        }
+        #guide-section-title.ytd-guide-section-renderer{
+            padding-right: sidebarItemPadding !important;
+            padding-left: sidebarItemPadding !important;
+        }
+        ytd-guide-section-renderer[modern-typography] #guide-section-title.ytd-guide-section-renderer{
+            font-size: sidebarItemSectionFontSize !important;
+            max-height: fit-content !important;
+            -webkit-line-clamp: sidebarItemTitleLineClamp !important;
+        }
+        .title.ytd-guide-entry-renderer{
+            font-size: sidebarItemFontSize !important;
+        }
+        
+        .guide-icon.ytd-guide-entry-renderer, yt-img-shadow.ytd-guide-entry-renderer{
+            margin-right: sidebarIconMargin !important;
+        }
+        /* Iconsize */
+        .guide-icon.ytd-guide-entry-renderer{
+            --iron-icon-height: sidebarIconSize !important;
+            --iron-icon-width: sidebarIconSize !important;
+        }
+        yt-img-shadow.ytd-guide-entry-renderer{
+            width: sidebarIconSize !important;
+            height: sidebarIconSize !important;
+        }
+        yt-img-shadow.ytd-guide-entry-renderer img.yt-img-shadow{
+            width: 100% !important;
+            height: 100% !important;
+        }
+        ytd-guide-entry-renderer{
+            border-radius: sidebarItemRoundness !important;
+        }
+        #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:hover, #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:focus, #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:active{
+            border-radius: sidebarItemRoundness !important;
+        }
+        yt-interaction.ytd-guide-entry-renderer, yt-interaction.ytd-guide-entry-renderer:hover{
+            border-radius: sidebarItemRoundness !important;
+        }
+        tp-yt-paper-item:focus::before, .tp-yt-paper-item.tp-yt-paper-item:focus::before{
+            border-radius: sidebarItemRoundness !important;
+        }
+    }
+}
+
+
 }
