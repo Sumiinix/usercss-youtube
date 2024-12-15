@@ -7,8 +7,6 @@ Version 2.1.0 brings the following updates and improvements:
 - **Custom Color Options**: Added support for customizing the colors of specific UI elements.
 - **Updated Settings Interface**: Made adjustments to the settings menu for better organization and usability.
 
-We value user feedback and aim to continue refining and adding features in future releases.
-
 # style-youtube-grid
 
 User style for YouTube
