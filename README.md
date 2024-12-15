@@ -1,3 +1,14 @@
+## What's New in Version 2.1.0
+
+Version 2.1.0 brings the following updates and improvements:
+
+- **Sidebar Size Customization**: Added the ability to adjust the width of the YouTube sidebar for improved flexibility.
+- **Additional Hide Options**: Introduced new options to hide certain interface elements. These features are currently limited but may be expanded in future updates.
+- **Custom Color Options**: Added support for customizing the colors of specific UI elements.
+- **Updated Settings Interface**: Made adjustments to the settings menu for better organization and usability.
+
+We value user feedback and aim to continue refining and adding features in future releases.
+
 # style-youtube-grid
 
 User style for YouTube
