@@ -53,8 +53,6 @@ The default settings in this user.css file are designed **to change the number o
 
 Enable these options as needed.
 
-![ex3.jpg](screenshots/ex3.jpg)
-
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for more details.
