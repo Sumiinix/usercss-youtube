@@ -36,6 +36,7 @@ Please note the following limitations when applying this style:
 * **Inconsistent Number of Videos per Row**: The number of videos per row may become inconsistent, especially in rows preceding short videos or in the last row before new videos load.
 
 * **Ghost Cards Disabled**: Placeholder cards (ghost cards) that appear when loading new videos are hidden; only the loading spinner is shown.
+
 * **Variable Content Size**: The size of video content varies between the set Width and Max Width values.
 
 ## Default and Optional Settings
@@ -52,11 +53,7 @@ The default settings in this user.css file are designed **to change the number o
 
 Enable these options as needed.
 
-## Other Settings
-
-- **Fix Arrow in Dark Mode** (changes the color of the arrow in the social links of the description; is the white arrow not visible only in my environment, or does it blend in for others too? )
-
-![ex3.jpg](https://github.com/Igusy/style-youtube-grid/blob/5aab8a96888b7e43f15de1c58d0f92dea4fd86c5/screenshots/ex3.jpg)
+![ex3.jpg](screenshots/ex3.jpg)
 
 ## License
 
