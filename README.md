@@ -42,7 +42,7 @@ Example on a 4K Display:
 
 Please note the following limitations when applying this style:
 
-* **Inconsistent Number of Videos per Row**: The number of videos per row may become inconsistent, especially in rows preceding short videos or in the last row before new videos load.
+* **Inconsistent Number of Videos per Row**: The number of videos per row may become inconsistent, especially in rows preceding shorts videos or in the last row before new videos load.
 
 * **Ghost Cards Disabled**: Placeholder cards (ghost cards) that appear when loading new videos are hidden; only the loading spinner is shown.
 
