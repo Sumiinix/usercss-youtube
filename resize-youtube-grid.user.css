@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Resize YouTube Grid
 @namespace      Igusy
-@version        2.1.0
+@version        2.1.1
 @description    style for youtube
 @author         Igusy
 @license        MIT
@@ -10,12 +10,6 @@
 @var checkbox isGridOptionsEnabled   "⬇️ Grid Options ⬇️"        1
 @var checkbox isGridPaddingEnabled   "･Padding (px)"               1
 @var number gridPadding              "└─ "                       [10, 0, 1000, 0.1, 'px']
-
-
-@var checkbox isShelfDisabled        "･Disable Shelf (e.g. Shorts, News)"       0
-@var checkbox homeShelf              "├─ Home"                                1
-@var checkbox subShelf               "└─ Subscription"                        1
-
 
 @var checkbox isContentSizeEnabled  "･Content Size (px)"           1
 @var number contentWidth              "├─ Width"                 [240, 0, 100000, 0.1, 'px']
@@ -30,7 +24,7 @@
 @var number metaText                "└─ Meta Text"          [1.3, 0, 100, 0.01, 'rem']
 
 
-@var checkbox isTitleLineClampEnabled   "･Title Line Clamp"             0
+@var checkbox isTitleLineClampEnabled   "･Title Line Clamp"             1
 @var range titleLineClamp               "└─ "                         [3, 1, 5, 1]
 
 
@@ -55,7 +49,7 @@
 @var checkbox isHorizontalContentEnabled   "･Horizontal Contents Menu Position (px)"    1
 @var number menuVerticalPosition           "├─ Vertical"                [-1, -1000, 1000, 0.1, 'px']
 @var number menuHorizontalPosition         "└─ Horizontal"              [-5, -1000, 1000, 0.1, 'px']
-@var checkbox isLimitShortsHeightEnabled   "･Limiting Shorts Height"      0
+@var checkbox isLimitShortsHeightEnabled   "･Limiting Shorts Height"      1
 @var checkbox isChannelPageEnabled         "･Channel Page"                1
 @var number channelGridWidth               "└─ Grid Width"              [90, 0, 100, 0.1, '%']
 @var checkbox isRecommendVideoEnabled      "･Recommended Videos on Channel Page"     1
@@ -79,14 +73,19 @@
 
 
 @var checkbox isColorOptionEnabled      "⬇️ Other Color Options ⬇️"     0
-@var checkbox isSearchBarColorEnabled   "･Search Bar (Only Dark Mode)"    0
+@var checkbox isHeaderColorEnabled      "･Header"                      0
+@var color headerColor                  "├─ Color"                     #0f0f0fc9
+@var number headerBlur                  "└─ Blur (px)"                 [8, 0, 100, 0.1, 'px']
+@var checkbox isSearchBarColorEnabled   "･Search Bar"                   0
 @var color searchBarColor               "├─ Bar"                        #7a7a7a14
+@var color searchBarBorderColor         "├─ Border"                     #7a7a7a52
 @var color searchButtonColor            "├─ Button"                     #ffffff14
 @var color suggestColor                 "├─ Suggest"                    #1e1e1e80
 @var number suggestBlur                 "└─ Suggest Box Blur (px)"      [20, 0, 100, 0.1, 'px']
-@var checkbox isSeekbarColorEnabled     "･Seek bar"                       0
-@var color seekBarColor                 "└─ "                           #fff
-@var checkbox isPlayerPageEnabled       "･Player Page"                    0
+@var checkbox isBarColorEnabled         "･Bar"                          0
+@var color loadProgressBarColor         "├─ Load Progress Bar"          #e2e2e2
+@var color seekBarColor                 "└─ Seek Bar"                   #e2e2e2
+@var checkbox isPlayerPageEnabled       "･Player Page"                    1
 @var color descriptionColor             "├─ Description"                #ffffff0a
 @var color liveChatColor                "└─ Live Chat"                  #0000004d
 @var checkbox isBeforeSubButtonColorEnabled   "･Button Before Subscription"     0
@@ -95,16 +94,22 @@
 
 
 @var checkbox isHideOptionEnabled    "⬇️ Hide Options ⬇️"              0
-@var checkbox hideCreateButton       "･Create button"                    0
-@var checkbox description            "･Description"                      0
-@var checkbox shortRemix             "├─ Shorts remixing?"             0
+@var checkbox hideFilterBar          "･Filter bar"                     0
+@var checkbox hideVoiceSearch        "･Voice Search"                   1
+@var checkbox hideCreateButton       "･Create button"                  0
+@var checkbox description            "･Description"                    0
+@var checkbox shortRemix             "├─ Shorts Remix"                 1
 @var checkbox hideHorizontalDesc     "├─ Horizontal Card List (Music?)"0
-@var checkbox hideYTMusicButton      "├─ YouTube Music Button"         0
-@var checkbox transcription          "├─ Transcription"                0
-@var checkbox channelDesctiption     "├─ Channel"                      0
-@var checkbox socialLinks            "├─ Social Links"                 0
-@var checkbox videosDescription      "├─ Videos"                       0
-@var checkbox hideShopDesc           "└─ Shop?"                        0
+@var checkbox hideYTMusicButton      "├─ YouTube Music Button"         1
+@var checkbox transcription          "├─ Transcription"                1
+@var checkbox channelDesctiption     "├─ Channel"                      1
+@var checkbox socialLinks            "├─ Social Links"                 1
+@var checkbox videosDescription      "├─ Videos"                       1
+@var checkbox hideShopDesc           "└─ Shop?"                        1
+@var checkbox hideShorts             "･Shorts"                  0
+@var checkbox homeShelf              "├─ In grid"               1
+@var checkbox hideShortsSidebar      "└─ Sidebar"               1
+
 
 @var checkbox isExpandedSidebarEnable        "⬇️ Expanded Sidebar ⬇️"    0
 @var checkbox isSidebarWidthEnabled          "･Width (px)"                 1
@@ -126,30 +131,10 @@
 
 ==/UserStyle== */
 
-@-moz-document url("https://www.youtube.com/") {
-    /* Shelf render (shorts, news ...) */
-    if(isShelfDisabled){
-        if(homeShelf){
-            ytd-rich-grid-renderer>#contents>ytd-rich-section-renderer:has(>#content>ytd-rich-shelf-renderer){
-                display: none !important;
-            }
-        }    
-    }
-}
-
-@-moz-document url("https://www.youtube.com/feed/subscriptions") {
-    /* Shelf render (shorts, news ...) */
-    if(isShelfDisabled){
-        if(subShelf){
-            ytd-rich-grid-renderer>#contents>ytd-rich-section-renderer:has(>#content>ytd-rich-shelf-renderer){
-                display: none !important;
-            }
-        }    
-    }
-}
-
 @-moz-document url-prefix("https://www.youtube.com/") {
-    
+    /*body{
+        --yt-spec-base-background: #00000000 !important;
+    }
 /* YouTube Grid Contents */
 if(isGridOptionsEnabled){
     
@@ -372,7 +357,7 @@ if(isRoundnessOptionEnabled){
         border-radius: imagesRoundness !important;
     }
     /* Filter Bar */
-    yt-chip-cloud-chip-renderer{
+    #chip-container.yt-chip-cloud-chip-renderer{
         border-radius: filterBarRoundness !important;
     }
     /* Buttons */
@@ -427,52 +412,83 @@ if(isRoundnessOptionEnabled){
         border-radius: channelPlayerRoundness !important;
     }
     /* Description */
-        #description.ytd-watch-metadata{
-            border-radius: descriptionRoundness !important;
-        }
-        ytd-rich-metadata-renderer[rounded]{
-            border-radius: descriptionRoundness !important;
-        }
-        yt-interaction.rounded-large .fill.yt-interaction, yt-interaction.rounded-large .stroke.yt-interaction{
-            border-radius: descriptionRoundness !important;
-        }
-        .ytVideoMetadataCarouselViewModelHost{
-            border-radius: descriptionRoundness !important;
-        }
-        ytd-live-chat-frame[rounded-container]:not([theater-watch-while]){
-            border-radius: descriptionRoundness !important;
-        }
-        ytd-live-chat-frame[rounded-container] iframe.ytd-live-chat-frame{
-            border-radius: descriptionRoundness !important;
-        }
-        
+    #description.ytd-watch-metadata{
+        border-radius: descriptionRoundness !important;
+    }
+    ytd-rich-metadata-renderer[rounded]{
+        border-radius: descriptionRoundness !important;
+    }
+    yt-interaction.rounded-large .fill.yt-interaction, yt-interaction.rounded-large .stroke.yt-interaction{
+        border-radius: descriptionRoundness !important;
+    }
+    .ytVideoMetadataCarouselViewModelHost{
+        border-radius: descriptionRoundness !important;
+    }
+    ytd-live-chat-frame[rounded-container]:not([theater-watch-while]){
+        border-radius: descriptionRoundness !important;
+    }
+    ytd-live-chat-frame[rounded-container] iframe.ytd-live-chat-frame{
+        border-radius: descriptionRoundness !important;
+    }
+    /* Playlist panel */
+    ytd-playlist-panel-renderer[modern-panels]:not([within-miniplayer]) #container.ytd-playlist-panel-renderer{
+        border-radius: descriptionRoundness !important;
+    }
 }
 
 
 
 if(isColorOptionEnabled){
     
+    if(isHeaderColorEnabled){
+        #background.ytd-masthead{
+            background: headerColor !important;
+            backdrop-filter: blur(headerBlur) !important;
+        }
+        if(alpha(headerColor) != 1){
+            #chips-wrapper.ytd-feed-filter-chip-bar-renderer{
+                background: #00000000 !important;
+                pointer-events: none;
+            }
+            yt-chip-cloud-chip-renderer.ytd-feed-filter-chip-bar-renderer{
+                background: headerColor !important;
+                backdrop-filter: blur(headerBlur) !important;
+                pointer-events: auto;
+            }
+        }else{
+            #chips-wrapper.ytd-feed-filter-chip-bar-renderer{
+                background: headerColor !important;
+            }
+        }
+    }
+    
     /* Search Bar Color */
     if(isSearchBarColorEnabled){
         /* Only Dark Mode */
         .ytSearchboxComponentInputBoxDark{
             background-color: searchBarColor !important;
+            border-color: searchBarBorderColor !important;
         }
         .ytSearchboxComponentSearchButtonDark{
             background-color: searchButtonColor !important;
+            border-color: searchBarBorderColor !important;
         }
         .ytSearchboxComponentSuggestionsContainer{
             background-color: suggestColor !important;
             backdrop-filter: blur(suggestBlur) !important;
         }
     }
-    
-    
+
     /* Seek Bar Color */
-    if(isSeekbarColorEnabled){
-        .ytp-cairo-refresh .ytp-swatch-background-color{
+    if(isBarColorEnabled){
+        #progress.yt-page-navigation-progress{
+            background: loadProgressBarColor !important;
+        }
+        
+        .ytp-swatch-background-color,.ytp-play-progress, ytd-thumbnail-overlay-resume-playback-renderer[enable-refresh-signature-moments-web] #progress.ytd-thumbnail-overlay-resume-playback-renderer{
             background: seekBarColor !important;
         }
+        
     }
     
     
@@ -504,8 +520,23 @@ if(isColorOptionEnabled){
 
 
 if(isHideOptionEnabled){
+    if(hideFilterBar){
+        ytd-feed-filter-chip-bar-renderer{
+            display: none !important;
+        }
+        yt-related-chip-cloud-renderer{
+            display: none !important;
+        }
+    }
+    
+    if(hideVoiceSearch){
+        #voice-search-button{
+            display: none!important;
+        }
+    }
+    
     if(hideCreateButton){
-        ytd-button-renderer:has(path[d="M20 12h-8v8h-1v-8H3v-1h8V3h1v8h8v1z"]){
+        ytd-button-renderer:has(svg path[d="M20 12h-8v8h-1v-8H3v-1h8V3h1v8h8v1z"]){
             display: none !important;
         }
     }
@@ -513,7 +544,7 @@ if(isHideOptionEnabled){
     
     if(description){ 
         if(shortRemix){
-            ytd-reel-shelf-renderer.ytd-structured-description-content-renderer{
+            ytd-reel-shelf-renderer.ytd-structured-description-content-renderer:has(ytm-shorts-lockup-view-model){
                 display: none !important;
             }
         }
@@ -557,6 +588,25 @@ if(isHideOptionEnabled){
         }
         if(hideShopDesc){
             ytd-merch-shelf-renderer{
+                display: none !important;
+            }
+        }
+    }
+    
+    
+    /* Shots */
+    if(hideShorts){
+        if(homeShelf){
+            ytd-rich-grid-renderer>#contents>ytd-rich-section-renderer:has(ytm-shorts-lockup-view-model){
+                display: none !important;
+            }
+        }
+        
+        if(hideShortsSidebar){
+            ytd-guide-entry-renderer.ytd-guide-section-renderer:nth-child(2):has(svg path[d^="m7.61 15.719.392-.22v-2.24l-.534-.228-.942-.404c-.869-.372-1.4-1.15-1.446-1.974-.047-.823.39-1.642"]){
+                display: none !important;
+            }
+            ytd-mini-guide-entry-renderer.ytd-mini-guide-renderer:nth-child(2):has(svg path[d^="m7.61 15.719.392-.22v-2.24l-.534-.228-.942-.404c-.869-.372-1.4-1.15-1.446-1.974-.047-.823.39-1.642"]){
                 display: none !important;
             }
         }
