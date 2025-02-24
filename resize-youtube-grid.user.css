@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Resize YouTube Grid
 @namespace      Igusy
-@version        2.2.0
+@version        2.2.1
 @description    style for youtube
 @author         Igusy
 @license        Unlicense
@@ -448,10 +448,13 @@
                     background: #00000000 !important;
                     pointer-events: none;
                 }
+                /* Maintains compatibility with scripts that add buttons to the filter bar, such as play all. */
+                #chips-wrapper.ytd-feed-filter-chip-bar-renderer *{
+                    pointer-events: auto;
+                }
                 yt-chip-cloud-chip-renderer.ytd-feed-filter-chip-bar-renderer{
                     background: headerColor !important;
                     backdrop-filter: blur(headerBlur) !important;
-                    pointer-events: auto;
                 }
             }else{
                 #chips-wrapper.ytd-feed-filter-chip-bar-renderer{
