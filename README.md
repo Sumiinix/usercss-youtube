@@ -61,13 +61,3 @@ The default settings in this user.css file are designed **to change the number o
 - **Watch Page Description** (customizes the description section on the watch page)
 
 Enable these options as needed.
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for more details.
-
----
-
-This README was generated with the assistance of ChatGPT-4.
-
----
