@@ -465,6 +465,25 @@ if(isColorOptionEnabled){
             background: headerColor !important;
             backdrop-filter: blur(headerBlur) !important;
         }
+
+        if(alpha(headerColor) != 1){
+            #chips-wrapper.ytd-feed-filter-chip-bar-renderer{
+                background: #00000000 !important;
+                pointer-events: none;
+            }
+            /* Maintains compatibility with scripts that add buttons to the filter bar, such as play all. */
+            #chips-wrapper.ytd-feed-filter-chip-bar-renderer *{
+                pointer-events: auto;
+            }
+            yt-chip-cloud-chip-renderer.ytd-feed-filter-chip-bar-renderer{
+                background: headerColor !important;
+                backdrop-filter: blur(headerBlur) !important;
+            }
+        }else{
+            #chips-wrapper.ytd-feed-filter-chip-bar-renderer{
+                background: headerColor !important;
+            }
+        }
     }
     
     /* Search Bar Color */
