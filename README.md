@@ -1,63 +1,46 @@
-## What's New in Version 2.1.0
+# Resize YouTube grid (resize-youtube-grid.user.css)
 
-Version 2.1.0 brings the following updates and improvements:
+I created this UserCSS to adjust the number of videos displayed in YouTube's grid layout.  
+ Instead of specifying the number of videos per row, this style adjusts the width of the thumbnails.  
+ Since the number of videos per row is not fixed, thumbnails will not become squished even if you reduce the browser window's width.
 
-- **Sidebar Size Customization**: Added the ability to adjust the width of the YouTube sidebar for improved flexibility.
-- **Additional Hide Options**: Introduced new options to hide certain interface elements. These features are currently limited but may be expanded in future updates.
-- **Custom Color Options**: Added support for customizing the colors of specific UI elements.
-- **Updated Settings Interface**: Made adjustments to the settings menu for better organization and usability.
+After initially creating this, I found myself wanting to modify other visual aspects as well, so I added a few more tweaks.  
+ If you don't need some of the additional features, please feel free to disable them in the style settings.
 
-# style-youtube-grid
-
-User style for YouTube
-
-This user.css file allows you to change the number of videos displayed per row in YouTube's video grid. By modifying the content width, you can increase the number of videos shown in each row, providing a more compact and efficient viewing experience.
-
-Example on a Full HD Display:
-
+Example on my Full HD display:
 ![ex1.jpg](https://github.com/Igusy/style-youtube-grid/blob/5aab8a96888b7e43f15de1c58d0f92dea4fd86c5/screenshots/ex1.jpg)
 
-Example on a 4K Display:
-
+Example on my 4K display:
 ![ex2.jpg](https://github.com/Igusy/style-youtube-grid/blob/5aab8a96888b7e43f15de1c58d0f92dea4fd86c5/screenshots/ex2.jpg)
 
 ## Installation
+To apply this style, please use the Stylus extension.  
+I have not tested it with other extensions.
 
-1. **Download the user.css file:**
-   
-   - Clone the repository or download the file directly from the GitHub page.
-   - Alternatively, you can install it directly if you use the Stylus extension:
-     [Install resize-youtube-grid.user.css](https://github.com/Igusy/style-youtube-grid/raw/main/resize-youtube-grid.user.css)
+You can install it from this link:  
+[Install resize-youtube-grid.user.css](https://github.com/Igusy/style-youtube-grid/raw/main/resize-youtube-grid.user.css)
 
-2. **Apply the user.css file:**
-   
-   - Use a browser extension like Stylus or User CSS to apply the user.css file to YouTube.
-   - Follow the instructions provided by your chosen extension to add and enable the custom CSS.
-
-## Usage
-
-- After applying the user.css file, the number of videos displayed per row in YouTube's video grid will increase. This allows you to see more videos at once without needing to scroll as much.
+## Clone this repository
+``` shell
+git clone https://github.com/Igusy/style-youtube-grid.git
+```
 
 ## Limitations
+YouTube frequently conducts A/B testing, which may cause this style to stop working.  
+I have personally encountered cases where the style worked on one account but not on another.
 
-Please note the following limitations when applying this style:
+Additionally, since YouTube's layout changes often, some settings might already be outdated.  
+Recently, I started using alternative frontends to avoid YouTube's excessive algorithm influence, so I use the official YouTube site less frequently now.  
+As a result, it has become difficult for me to maintain this style.  
+Feel free to copy, modify, and share this style with anyone who might find it helpful.
 
-* **Inconsistent Number of Videos per Row**: The number of videos per row may become inconsistent, especially in rows preceding shorts videos or in the last row before new videos load.
+## Known Issues
+When adjusting thumbnail width, ghost cards (placeholders) that appear during grid loading are hidden.  
+This is because I couldn't make the ghost cards display properly under the modified layout.
 
-* **Ghost Cards Disabled**: Placeholder cards (ghost cards) that appear when loading new videos are hidden; only the loading spinner is shown.
+The thumbnail width dynamically changes depending on your browser window size, ranging between the values set in "Content Size (px) → Width" and "Content Size (px) → Max Width" in the style settings.  
+Due to variations in the number of videos per row (e.g., fewer videos because of ad blockers), the last row might have fewer thumbnails than others. In such cases, thumbnails on the last row can appear larger — up to the "Max Width" you set.
 
-* **Variable Content Size**: The size of video content varies between the set Width and Max Width values.
+If you don't fully understand this behavior, try scrolling to the bottom of your YouTube homepage and observe the thumbnail sizes before new videos load.
 
-## Default and Optional Settings
-
-The default settings in this user.css file are designed **to change the number of videos displayed per row** in YouTube’s grid view. Additionally, there are other customization options that I personally use, which are disabled by default. You can enable these settings by simply checking the respective checkboxes:
-
-- **Disable Shelf** (e.g., Shorts, News sections)
-- **Channel Icon Size**
-- **Roundness** (for UI elements)
-- **Channel Page Grid** (custom grid layout on channel pages)
-- **Player Roundness** (degree of roundness of the video player)
-- **Button Before Subscription** (changes the color of the button displayed before subscribing)
-- **Watch Page Description** (customizes the description section on the watch page)
-
-Enable these options as needed.
+If you prefer a consistent thumbnail size regardless of browser width, set the same value for both "Width" and "Max Width" in the style settings.
