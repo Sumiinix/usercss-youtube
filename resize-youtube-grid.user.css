@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Resize YouTube grid
 @namespace      Insert your namespace!
-@version        2.2.2
+@version        2.2.3
 @description    I created this UserCSS to improve the YouTube experience!
 @author         Insert your name ^_^
 @license        Unlicense
@@ -628,13 +628,6 @@ if(isHideOptionEnabled){
             }
         }
     }
-    
-    /* All sections */
-    if(hideSection){
-        ytd-rich-section-renderer{
-            display: none !important;
-        }
-    }
 }
 
     
@@ -715,5 +708,14 @@ if(isExpandedSidebarEnable){
     }
 }
 
-
+}
+@-moz-document regexp("https://www.youtube.com/") {
+    /* Hide All sections */
+    if(isHideOptionEnabled){
+        if(hideSection){
+            ytd-rich-grid-renderer ytd-rich-section-renderer{
+                display: none !important;
+            }
+        }
+    }
 }
