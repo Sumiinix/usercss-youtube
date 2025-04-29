@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Resize YouTube grid
 @namespace      Insert your namespace!
-@version        2.2.1
+@version        2.2.2
 @description    I created this UserCSS to improve the YouTube experience!
 @author         Insert your name ^_^
 @license        Unlicense
@@ -104,6 +104,7 @@
 @var checkbox hideShorts             "･Shorts"                  1
 @var checkbox homeShelf              "├─ In grid"               1
 @var checkbox hideShortsSidebar      "└─ Sidebar"               1
+@var checkbox hideSection            "･All Sections in grid"    1
 
 
 @var checkbox isExpandedSidebarEnable        "⬇️ Expanded Sidebar ⬇️"    1
@@ -625,6 +626,13 @@ if(isHideOptionEnabled){
             ytd-mini-guide-entry-renderer.ytd-mini-guide-renderer:nth-child(2):has(svg path[d^="m7.61 15.719.392-.22v-2.24l-.534-.228-.942-.404c-.869-.372-1.4-1.15-1.446-1.974-.047-.823.39-1.642"]){
                 display: none !important;
             }
+        }
+    }
+    
+    /* All sections */
+    if(hideSection){
+        ytd-rich-section-renderer{
+            display: none !important;
         }
     }
 }
