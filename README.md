@@ -8,21 +8,21 @@ After initially creating this, I found myself wanting to modify other visual asp
  If you don't need some of the additional features, please feel free to disable them in the style settings.
 
 Example on my Full HD display:
-![ex1.jpg](https://github.com/Igusy/style-youtube-grid/blob/5aab8a96888b7e43f15de1c58d0f92dea4fd86c5/screenshots/ex1.jpg)
+![ex1.jpg](https://github.com/Sumiinix/style-youtube-grid/blob/5aab8a96888b7e43f15de1c58d0f92dea4fd86c5/screenshots/ex1.jpg)
 
 Example on my 4K display:
-![ex2.jpg](https://github.com/Igusy/style-youtube-grid/blob/5aab8a96888b7e43f15de1c58d0f92dea4fd86c5/screenshots/ex2.jpg)
+![ex2.jpg](https://github.com/Sumiinix/style-youtube-grid/blob/5aab8a96888b7e43f15de1c58d0f92dea4fd86c5/screenshots/ex2.jpg)
 
 ## Installation
 To apply this style, please use the [Stylus extension](https://github.com/openstyles/stylus?tab=readme-ov-file#releases).  
 I have not tested it with other extensions.
 
 You can install it from this link:  
-[Install resize-youtube-grid.user.css](https://github.com/Igusy/style-youtube-grid/raw/main/resize-youtube-grid.user.css)
+[Install resize-youtube-grid.user.css](https://github.com/Sumiinix/style-youtube-grid/raw/main/resize-youtube-grid.user.css)
 
 ## Clone this repository
 ``` shell
-git clone https://github.com/Igusy/style-youtube-grid.git
+git clone https://github.com/Sumiinix/style-youtube-grid.git
 ```
 
 ## Limitations
