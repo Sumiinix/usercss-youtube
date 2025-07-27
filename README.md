@@ -1,4 +1,32 @@
-# Resize YouTube grid (resize-youtube-grid.user.css)
+# YouTube mental style (youtube-mental-style.css)
+
+私は、YouTubeに他のフロントエンドを使ってアクセスしています。しかし、フロントエンドが動作しなくなった場合は、YouTubeに直接アクセスする必要があるでしょう。
+
+しかし、YouTubeの見た目は最悪です。これらをある程度パーソナライズするには、アカウントが必要になります。一方で、過去の時点でパーソナライズされたYouTubeのおすすめがひどいと気づいています。パーソナライズされたYouTubeのおすすめは下水道ですが、パーソナライズされていないYouTubeは最悪の地獄です。
+
+[ex444.jpg](/screenshots/ex444.jpg)と[ex444-2.jpg](/screenshots/ex444-2.jpg)に、今のホームの見た目を示します（⚠️自己責任で見てください）。最初は動画がおすすめされないので、これらの画像は音楽を1曲聞いたり、実況動画を1つ見た後の様子になります。
+
+ホーム画面を見ると気が狂いそうになりました。なるべく精神の状態を正気に保つ必要がありました。だから、スタイルを作りました。今まで作ってきたスタイルと目的が少し異なる気がしたので、`resize-youtube-grid.user.css`から新しく`youtube-mental-style.css`を作成しました。
+
+主に、ホームと視聴ページの動作を重視しています。
+
+ベストプラクティスは、ホームにアクセスしないことです。ただ、対策しておくことに、損はないでしょう。ショーツどころか、動画が軒並み最悪になったら、YouTubeから脱出する機会かもしれません。
+
+## インストール
+
+[Stylus 拡張機能](https://github.com/openstyles/stylus?tab=readme-ov-file#releases)の使用を想定しています。
+
+Stylus拡張機能にuser.cssを適用してもらいます。下記のリンクにアクセスすると、インストールできることを願っております。
+
+[Install resize-youtube-grid.user.css](https://github.com/Sumiinix/style-youtube-grid/raw/main/youtube-mental-style.css)
+
+## スクリーンショッテム
+
+[ex444.jpg](/screenshots/ex444.jpg)へスタイル適用後:
+
+![ex444-39.jpg](/screenshots/ex444-39.jpg)
+
+## old (resize-youtube-grid.user.css)
 
 I created this [UserCSS](https://github.com/openstyles/stylus/wiki/Usercss) to adjust the number of videos displayed in YouTube's grid layout.  
  Instead of specifying the number of videos per row, this style adjusts the width of the thumbnails.  
@@ -8,10 +36,10 @@ After initially creating this, I found myself wanting to modify other visual asp
  If you don't need some of the additional features, please feel free to disable them in the style settings.
 
 Example on my Full HD display:
-![ex1.jpg](https://github.com/Sumiinix/style-youtube-grid/blob/5aab8a96888b7e43f15de1c58d0f92dea4fd86c5/screenshots/ex1.jpg)
+![ex1.jpg](/screenshots/ex1.jpg)
 
 Example on my 4K display:
-![ex2.jpg](https://github.com/Sumiinix/style-youtube-grid/blob/5aab8a96888b7e43f15de1c58d0f92dea4fd86c5/screenshots/ex2.jpg)
+![ex2.jpg](/screenshots/ex2.jpg)
 
 ## Installation
 To apply this style, please use the [Stylus extension](https://github.com/openstyles/stylus?tab=readme-ov-file#releases).  
