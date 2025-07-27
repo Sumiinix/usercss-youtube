@@ -1,4 +1,4 @@
-# YouTube mental style (youtube-mental-style.css)
+# YouTube mental style (youtube-mental-style.user.css)
 
 私は、YouTubeに他のフロントエンドを使ってアクセスしています。しかし、フロントエンドが動作しなくなった場合は、YouTubeに直接アクセスする必要があるでしょう。
 
@@ -6,7 +6,7 @@
 
 [ex444.jpg](/screenshots/ex444.jpg)と[ex444-2.jpg](/screenshots/ex444-2.jpg)に、今のホームの見た目を示します（⚠️自己責任で見てください）。最初は動画がおすすめされないので、これらの画像は音楽を1曲聞いたり、実況動画を1つ見た後の様子になります。
 
-ホーム画面を見ると気が狂いそうになりました。なるべく精神の状態を正気に保つ必要がありました。だから、スタイルを作りました。今まで作ってきたスタイルと目的が少し異なる気がしたので、`resize-youtube-grid.user.css`から新しく`youtube-mental-style.css`を作成しました。
+ホーム画面を見ると気が狂いそうになりました。なるべく精神の状態を正気に保つ必要がありました。だから、スタイルを作りました。今まで作ってきたスタイルと目的が少し異なる気がしたので、`resize-youtube-grid.user.css`から新しく`youtube-mental-style.user.css`を作成しました。
 
 主に、ホームと視聴ページの動作を重視しています。
 
@@ -18,7 +18,7 @@
 
 Stylus拡張機能にuser.cssを適用してもらいます。下記のリンクにアクセスすると、インストールできることを願っております。
 
-[Install resize-youtube-grid.user.css](https://github.com/Sumiinix/style-youtube-grid/raw/main/youtube-mental-style.css)
+[Install resize-youtube-grid.user.css](https://github.com/Sumiinix/style-youtube-grid/raw/main/youtube-mental-style.user.css)
 
 ## スクリーンショッテム
 
