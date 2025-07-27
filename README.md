@@ -26,6 +26,8 @@ Stylus拡張機能にuser.cssを適用してもらいます。下記のリンク
 
 ![ex444-39.jpg](/screenshots/ex444-39.jpg)
 
+---
+
 ## old (resize-youtube-grid.user.css)
 
 I created this [UserCSS](https://github.com/openstyles/stylus/wiki/Usercss) to adjust the number of videos displayed in YouTube's grid layout.  
@@ -35,25 +37,19 @@ I created this [UserCSS](https://github.com/openstyles/stylus/wiki/Usercss) to a
 After initially creating this, I found myself wanting to modify other visual aspects as well, so I added a few more tweaks.  
  If you don't need some of the additional features, please feel free to disable them in the style settings.
 
-Example on my Full HD display:
-![ex1.jpg](/screenshots/ex1.jpg)
-
-Example on my 4K display:
-![ex2.jpg](/screenshots/ex2.jpg)
-
-## Installation
+### Installation
 To apply this style, please use the [Stylus extension](https://github.com/openstyles/stylus?tab=readme-ov-file#releases).  
 I have not tested it with other extensions.
 
 You can install it from this link:  
 [Install resize-youtube-grid.user.css](https://github.com/Sumiinix/style-youtube-grid/raw/main/resize-youtube-grid.user.css)
 
-## Clone this repository
+### Clone this repository
 ``` shell
 git clone https://github.com/Sumiinix/style-youtube-grid.git
 ```
 
-## Limitations
+### Limitations
 YouTube frequently conducts [A/B testing](https://en.wikipedia.org/wiki/A/B_testing), which may cause this style to stop working.  
 I have personally encountered cases where the style worked on one account but not on another.
 
@@ -62,7 +58,7 @@ Recently, I started using [alternative frontends](https://github.com/mendel5/alt
 As a result, it has become difficult for me to maintain this style.  
 Feel free to copy, modify, and share this style with anyone who might find it helpful.
 
-## Known Issues
+### Known Issues
 When adjusting thumbnail width, ghost cards (placeholders) that appear during grid loading are hidden.  
 This is because I couldn't make the ghost cards display properly under the modified layout.
 
@@ -73,7 +69,7 @@ If you don't fully understand this behavior, try scrolling to the bottom of your
 
 If you prefer a consistent thumbnail size regardless of browser width, set the same value for both "Width" and "Max Width" in the style settings.
 
-## Recommendations
+### Recommendations
 I recommend using an ad blocker such as the [uBlock Origin](https://ublockorigin.com/) extension.
 
 The [Improve YouTube](https://github.com/code-charity/youtube) extension can further enhance your YouTube experience.
