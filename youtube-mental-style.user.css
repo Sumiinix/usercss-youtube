@@ -315,8 +315,7 @@ if(isOtherContentOptionEnabled){
 if(isRoundnessOptionEnabled){
     
     /* Thunbnail */
-    ytd-thumbnail a.ytd-thumbnail,
-    ytd-thumbnail:before{
+    .yt-thumbnail-view-model{
         border-radius: thumbnailRoundness !important;
     }
     /* Playlist Thunbnail */
@@ -550,7 +549,7 @@ if(isColorOptionEnabled){
     }
     
     if(grayscaleThumbnail){
-        ytd-thumbnail, .shortsLockupViewModelHostThumbnailContainerRounded{
+        .yt-thumbnail-view-model, .shortsLockupViewModelHostThumbnailContainerRounded{
             filter: grayscale(1) !important;
         }
     }
