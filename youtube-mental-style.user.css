@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           YouTube mental style
 @namespace      Insert your namespace!
-@version        1.0.1
+@version        1.0.2
 @description    Mental health
 @author         Insert your name ^_^
 @license        Unlicense
@@ -316,7 +316,7 @@ if(isRoundnessOptionEnabled){
     
     /* Thunbnail */
     ytd-thumbnail[size="medium"] a.ytd-thumbnail, ytd-thumbnail[size="medium"]::before,
-    .yt-thumbnail-view-model{
+    yt-thumbnail-view-model{
         border-radius: thumbnailRoundness !important;
     }
     /* Playlist Thunbnail */
@@ -551,7 +551,7 @@ if(isColorOptionEnabled){
     
     if(grayscaleThumbnail){
         ytd-thumbnail,
-        .yt-thumbnail-view-model, .shortsLockupViewModelHostThumbnailContainerRounded{
+        yt-thumbnail-view-model, .shortsLockupViewModelHostThumbnailContainerRounded{
             filter: grayscale(1) !important;
         }
     }
