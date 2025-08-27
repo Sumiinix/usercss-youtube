@@ -4,7 +4,7 @@
 
 しかし、YouTubeの見た目は最悪です。これらをある程度パーソナライズするには、アカウントが必要になります。一方で、過去の時点でパーソナライズされたYouTubeのおすすめがひどいと気づいています。パーソナライズされたYouTubeのおすすめは下水道ですが、パーソナライズされていないYouTubeは最悪の地獄です。
 
-[ex444.jpg](/screenshots/ex444.jpg)と[ex444-2.jpg](/screenshots/ex444-2.jpg)に、今のホームの見た目を示します（⚠️自己責任で見てください）。最初は動画がおすすめされないので、これらの画像は音楽を1曲聞いたり、実況動画を1つ見た後の様子になります。
+[ex444.jpg](screenshots/ex444.jpg)と[ex444-2.jpg](screenshots/ex444-2.jpg)に、今のホームの見た目を示します（⚠️自己責任で見てください）。最初は動画がおすすめされないので、これらの画像は音楽を1曲聞いたり、実況動画を1つ見た後の様子になります。
 
 ホーム画面を見ると気が狂いそうになりました。なるべく精神の状態を正気に保つ必要がありました。だから、スタイルを作りました。今まで作ってきたスタイルと目的が少し異なる気がしたので、`resize-youtube-grid.user.css`から新しく`youtube-mental-style.user.css`を作成しました。
 
@@ -18,13 +18,13 @@
 
 Stylus拡張機能にuser.cssを適用してもらいます。下記のリンクにアクセスすると、インストールできることを願っております。
 
-[Install resize-youtube-grid.user.css](https://github.com/Sumiinix/style-youtube-grid/raw/main/youtube-mental-style.user.css)
+[Install resize-youtube-grid.user.css](https://codeberg.org/Sumiinix/style-youtube-grid/raw/branch/main/youtube-mental-style.user.css)
 
 ## スクリーンショッテム
 
-[ex444.jpg](/screenshots/ex444.jpg)へスタイル適用後:
+[ex444.jpg](screenshots/ex444.jpg)へスタイル適用後:
 
-![ex444-39.jpg](/screenshots/ex444-39.jpg)
+![ex444-39.jpg](screenshots/ex444-39.jpg)
 
 ---
 
@@ -42,7 +42,7 @@ To apply this style, please use the [Stylus extension](https://github.com/openst
 I have not tested it with other extensions.
 
 You can install it from this link:  
-[Install resize-youtube-grid.user.css](https://github.com/Sumiinix/style-youtube-grid/raw/main/resize-youtube-grid.user.css)
+[Install resize-youtube-grid.user.css](https://codeberg.org/Sumiinix/style-youtube-grid/raw/branch/main/resize-youtube-grid.user.css)
 
 ### Clone this repository
 ``` shell
