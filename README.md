@@ -1,26 +1,33 @@
-# YouTube mental style (youtube-mental-style.user.css)
+# UserCSS
 
-私は、YouTubeに他のフロントエンドを使ってアクセスしています。しかし、フロントエンドが動作しなくなった場合は、YouTubeに直接アクセスする必要があるでしょう。
+## YouTube mental style (youtube-mental-style.user.css)
 
-しかし、YouTubeの見た目は最悪です。これらをある程度パーソナライズするには、アカウントが必要になります。一方で、過去の時点でパーソナライズされたYouTubeのおすすめがひどいと気づいています。パーソナライズされたYouTubeのおすすめは下水道ですが、パーソナライズされていないYouTubeは最悪の地獄です。
+私は、YouTubeに他のフロントエンドを使ってアクセスしています。しかし、フロントエンドが動作しなくなった場合は、YouTubeに直接アクセスする必要があるでしょう。\
+I am accessing YouTube using another frontend. However, if the frontend stops working, I will need to access YouTube directly.
 
-[ex444.jpg](screenshots/ex444.jpg)と[ex444-2.jpg](screenshots/ex444-2.jpg)に、今のホームの見た目を示します（⚠️自己責任で見てください）。最初は動画がおすすめされないので、これらの画像は音楽を1曲聞いたり、実況動画を1つ見た後の様子になります。
+しかし、YouTubeの見た目は最悪です。これらをある程度パーソナライズするには、アカウントが必要になります。一方で、過去の時点でパーソナライズされたYouTubeのおすすめがひどいと気づいています。パーソナライズされたYouTubeのおすすめは下水道ですが、パーソナライズされていないYouTubeは最悪の地獄です。\
+However, the appearance of YouTube is terrible. To personalize it to some extent, an account is required. On the other hand, I have realized that the personalized recommendations on YouTube were terrible at some point in the past. Personalized YouTube recommendations are like a sewer, but non-personalized YouTube is the worst hell.
 
-ホーム画面を見ると気が狂いそうになりました。なるべく精神の状態を正気に保つ必要がありました。だから、スタイルを作りました。今まで作ってきたスタイルと目的が少し異なる気がしたので、`resize-youtube-grid.user.css`から新しく`youtube-mental-style.user.css`を作成しました。
+[ex444.jpg](screenshots/ex444.jpg)と[ex444-2.jpg](screenshots/ex444-2.jpg)に、今のホームの見た目を示します（⚠️自己責任で見てください）。最初は動画がおすすめされないので、これらの画像は音楽を1曲聞いたり、実況動画を1つ見た後の様子になります。\
+The images [ex444.jpg](screenshots/ex444.jpg) and [ex444-2.jpg](screenshots/ex444-2.jpg) show what my current home screen looks like (⚠️ view at your own risk). At first, no videos are recommended, so these images are from after listening to one song or watching one gameplay video.
 
-主に、ホームと視聴ページの動作を重視しています。
+ホーム画面を見ると気が狂いそうになりました。なるべく精神の状態を正気に保つ必要がありました。だから、スタイルを作りました。今まで作ってきたスタイルと目的が少し異なる気がしたので、`resize-youtube-grid.user.css`から新しく`youtube-mental-style.user.css`を作成しました。\
+Looking at the home screen made me feel like I was going crazy. I had to keep my mental state as sane as possible. So, I created a style. I felt that the style I had been creating was slightly different from my purpose, so I made a new `youtube-mental-style.user.css` from the original `resize-youtube-grid.user.css`.
 
-ベストプラクティスは、ホームにアクセスしないことです。ただ、対策しておくことに、損はないでしょう。ショーツどころか、動画が軒並み最悪になったら、YouTubeから脱出する機会かもしれません。
+このユーザスタイルは通常のユーザには向いていません。普段YouTubeを直接使わない人が、YouTubeを使わざるを得なくなった時に、精神を正常に保つためのものです。\
+This user style is not intended for regular users. It is meant for those who usually do not use YouTube directly but find themselves having to use it, in order to keep their mental state normal.
 
-## インストール
+### インストール Installation
 
-[Stylus 拡張機能](https://github.com/openstyles/stylus?tab=readme-ov-file#releases)の使用を想定しています。
+[Stylus 拡張機能](https://github.com/openstyles/stylus?tab=readme-ov-file#releases)の使用を想定しています。\
+It is assumed that you will be using the [Stylus extension](https://github.com/openstyles/stylus?tab=readme-ov-file#releases).
 
-Stylus拡張機能にuser.cssを適用してもらいます。下記のリンクにアクセスすると、インストールできることを願っております。
+Stylus拡張機能にuser.cssを適用してもらいます。下記のリンクにアクセスすると、インストールできることを願っております。\
+Please apply the user.css to the Stylus extension. I hope you can install it by accessing the link below.
 
 [Install resize-youtube-grid.user.css](https://codeberg.org/Sumiinix/style-youtube-grid/raw/branch/main/youtube-mental-style.user.css)
 
-## スクリーンショッテム
+### スクリーンショット
 
 [ex444.jpg](screenshots/ex444.jpg)へスタイル適用後:
 
@@ -37,19 +44,8 @@ I created this [UserCSS](https://github.com/openstyles/stylus/wiki/Usercss) to a
 After initially creating this, I found myself wanting to modify other visual aspects as well, so I added a few more tweaks.  
  If you don't need some of the additional features, please feel free to disable them in the style settings.
 
-### Installation
-To apply this style, please use the [Stylus extension](https://github.com/openstyles/stylus?tab=readme-ov-file#releases).  
-I have not tested it with other extensions.
-
-You can install it from this link:  
-[Install resize-youtube-grid.user.css](https://codeberg.org/Sumiinix/style-youtube-grid/raw/branch/main/resize-youtube-grid.user.css)
-
-### Clone this repository
-``` shell
-git clone https://github.com/Sumiinix/style-youtube-grid.git
-```
-
 ### Limitations
+
 YouTube frequently conducts [A/B testing](https://en.wikipedia.org/wiki/A/B_testing), which may cause this style to stop working.  
 I have personally encountered cases where the style worked on one account but not on another.
 
@@ -59,6 +55,7 @@ As a result, it has become difficult for me to maintain this style.
 Feel free to copy, modify, and share this style with anyone who might find it helpful.
 
 ### Known Issues
+
 When adjusting thumbnail width, ghost cards (placeholders) that appear during grid loading are hidden.  
 This is because I couldn't make the ghost cards display properly under the modified layout.
 
@@ -70,6 +67,7 @@ If you don't fully understand this behavior, try scrolling to the bottom of your
 If you prefer a consistent thumbnail size regardless of browser width, set the same value for both "Width" and "Max Width" in the style settings.
 
 ### Recommendations
+
 I recommend using an ad blocker such as the [uBlock Origin](https://ublockorigin.com/) extension.
 
 The [Improve YouTube](https://github.com/code-charity/youtube) extension can further enhance your YouTube experience.
