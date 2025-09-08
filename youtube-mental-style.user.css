@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           YouTube mental style
 @namespace      Insert your namespace!
-@version        1.0.3
+@version        1.0.4
 @description    youtube usercss
 @author         Insert your name
 @license        Unlicense
@@ -120,16 +120,19 @@
         /* Grid Metadata */
         if(isMetadata){
             /* Title line clamp */
-            .yt-lockup-metadata-view-model-wiz--standard.yt-lockup-metadata-view-model-wiz--rich-grid-legacy-typography .yt-lockup-metadata-view-model-wiz__title {
+            .yt-lockup-metadata-view-model-wiz--standard.yt-lockup-metadata-view-model-wiz--rich-grid-legacy-typography .yt-lockup-metadata-view-model-wiz__title,
+            .yt-lockup-metadata-view-model--standard.yt-lockup-metadata-view-model--rich-grid-legacy-typography .yt-lockup-metadata-view-model__title {
                 -webkit-line-clamp: titleLineClamp !important;
                 max-height: fit-content !important;
             }
             /* Titile size  */
-            .yt-lockup-metadata-view-model-wiz--standard.yt-lockup-metadata-view-model-wiz--rich-grid-legacy-typography .yt-lockup-metadata-view-model-wiz__title {
+            .yt-lockup-metadata-view-model-wiz--standard.yt-lockup-metadata-view-model-wiz--rich-grid-legacy-typography .yt-lockup-metadata-view-model-wiz__title,
+            .yt-lockup-metadata-view-model--standard.yt-lockup-metadata-view-model--rich-grid-legacy-typography .yt-lockup-metadata-view-model__title{
                 font-size: titleText !important;
             }
             /* Metadata size */
-            .yt-content-metadata-view-model-wiz--medium-text .yt-content-metadata-view-model-wiz__metadata-text {
+            .yt-content-metadata-view-model-wiz--medium-text .yt-content-metadata-view-model-wiz__metadata-text,
+            .yt-content-metadata-view-model--medium-text .yt-content-metadata-view-model__metadata-text {
                 font-size: metaText !important;
                 line-height: metaText + 40% !important;
             }
