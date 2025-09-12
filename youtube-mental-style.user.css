@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           YouTube mental style
 @namespace      Insert your namespace!
-@version        1.0.5
+@version        1.0.6
 @description    youtube usercss
 @author         Insert your name
 @license        Unlicense
@@ -82,21 +82,22 @@
                 display:none !important;
             }
             
-            /* Search results  ## */
-            /* Videos */
-            ytd-search ytd-video-renderer[use-bigger-thumbs][bigger-thumbs-style="BIG"] ytd-thumbnail.ytd-video-renderer {
+            /* ## Search results  ## */
+            ytd-search ytd-video-renderer[use-bigger-thumbs][bigger-thumbs-style="BIG"] ytd-thumbnail.ytd-video-renderer, /* Videos */
+            ytd-search ytd-channel-renderer[use-bigger-thumbs][bigger-thumb-style="BIG"] #avatar-section.ytd-channel-renderer { /* Channel */
                 max-width: maxContentWidth !important;
-                width: contentWidth !important;
-                min-width: contentWidth !important;
+                width: maxContentWidth !important;
             }
             /* Playlist */
-            ytd-search .yt-collection-thumbnail-view-model,ytd-search .yt-lockup-view-model-wiz__content-image {
+            ytd-search #contents .ytCollectionThumbnailViewModelHost { 
                 max-width: maxContentWidth !important;
-                width: contentWidth !important;
-                flex: auto !important;
+                width: maxContentWidth !important;
+            }
+            ytd-search ytd-item-section-renderer > #contents .yt-lockup-view-model__content-image { 
+                width: auto !important;
             }
         }
-        
+
         /* Spacing */
         if(isGridSpacing){
             /* Grid side spacing */
@@ -295,7 +296,7 @@
         }
         
         if(hideExtraDescription){
-            #description{
+            #description {
                 ytd-reel-shelf-renderer.ytd-structured-description-content-renderer:has(ytm-shorts-lockup-view-model), /* Shorts remix */
                 #dismissible>#footer-section:has(path[d^="M12 4v9.38c-.73-.84-1.8-1.38-3-1.38-2.21 0-4"]), /* YT Music button */
                 #header.ytd-video-description-infocards-section-renderer, /* Channel descriptions */
@@ -326,7 +327,9 @@
                 }
             }
             /* on search result */
-            ytd-search grid-shelf-view-model, ytd-search ytd-shelf-renderer{
+            ytd-search grid-shelf-view-model,
+            ytd-search ytd-shelf-renderer,
+            ytd-search ytd-horizontal-card-list-renderer {
                 display: none !important;
             }
         }
