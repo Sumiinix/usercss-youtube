@@ -1,51 +1,52 @@
 /* ==UserStyle==
 @name           YouTube mental style
 @namespace      Insert your namespace!
-@version        1.0.8
+@version        1.0.9
 @description    youtube usercss
 @author         Insert your name
 @license        Unlicense
 @preprocessor   stylus
 
-@var checkbox isGridOptions          "⬇️ Grid Options ⬇️"        1
-@var checkbox isContentSize           "･Content Size (px)"        1
-@var number contentWidth              "├─ Base Width"             [240, 0, 100000, 0.1, 'px']
-@var number maxContentWidth           "└─ Max Width"              [300, 0, 100000, 0.1, 'px']
+@var checkbox isHideOptionEnabled       "⬇️ Hide Options ⬇️"               1
+@var checkbox hideVoiceSearch           "･Voice Search"                    1
+@var checkbox hideExtraDescription      "･Extra Description"               1
+@var checkbox hideComments              "･Comments"                        0
+@var checkbox hideSection               "･All Sections in Home & Search"   1
+@var checkbox hideHome                  "･Home Grids"                      1
+@var checkbox hideRelatedVideos         "･Related Videos"                  1
 
-@var checkbox isGridSpacing          "･Spacing (px)"              1
-@var number gridPadding               "├─ Grid Side"              [15, 0, 1000, 0.1, 'px']
-@var number contentSideMargin         "├─ Content Side"           [5, 0, 10000, 0.1, 'px']
-@var number contentBottomMargin       "├─ Content Bottom"         [14, 0, 10000, 0.1, 'px']
-@var number marginTitleTop            "├─ Title Top"              [9, 0, 10000, 0.1, 'px']
-@var number marginAvatorRight         "└─ Avator Right"           [10, 0, 10000, 0.1, 'px']
-
-@var checkbox isMetadata            "･Metadata"                   1
-@var range titleLineClamp           "├─ Title Line Clamp"         [3, 1, 5, 1]
-@var number titleText               "├─ Title Size (rem)"         [1.35, 0, 100, 0.01, 'rem']
-@var number metaText                "├─ Meta Text Size (rem)"     [1.28, 0, 100, 0.01, 'rem']
-@var number avatarSize              "├─ Avatar Size (rem)"        [3.40, 0, 100, 0.01, 'rem']
-@var checkbox smallerMenuButton     "└─ Smaller Menu Button"      1
-
-@var checkbox isSquares             "➡️ Prefer squares ⬅️"                 1
+@var checkbox isSquares                 "➡️ Prefer squares ⬅️"             1
 
 @var checkbox isColorOption             "⬇️ Color Options ⬇️"              1
-@var checkbox modifyDarkThemeAppearance "･Modified dark theme appearance"   1
-@var color seekBarColor                 "･Seek Bar"                         #e2e2e2
-@var color descriptionColor             "･Player Page Description"          #ffffff0a
-@var number grayscaleThumbnail          "･Grayscale Thumbnail (%)"          [90, 0, 100, 10, '%']
+@var checkbox modifyDarkThemeAppearance "･Modified dark theme appearance"  1
+@var color seekBarColor                 "･Seek Bar"                        #e2e2e2
+@var color descriptionColor             "･Player Page Description"         #ffffff0a
+@var number grayscaleThumbnail          "･Grayscale Thumbnail (%)"         [90, 0, 100, 10, '%']
 
-@var checkbox isHideOptionEnabled    "⬇️ Hide Options ⬇️"                   1
-@var checkbox hideVoiceSearch        "･Voice Search"                         1
-@var checkbox hideExtraDescription   "･Extra Description"                    1
-@var checkbox hideShortsSidebar      "･Shorts Sidebar"                       1
-@var checkbox hideSection            "･All Sections in Home & Search"        1
-@var checkbox hideRelatedVideos      "･Related Videos"                       1
+@var checkbox isExpandedSidebar         "➡️ Smaller Sidebar ⬅️"       1
 
-@var checkbox isExpandedSidebar              "➡️ Modified Expanded Sidebar ⬅️"    1
+@var checkbox isGridOptions             "⬇️ Grid Options ⬇️"          1
+@var checkbox isContentSize             "･Content Size (px)"          1
+@var number contentWidth                "├─ Base Width"               [240, 0, 100000, 0.1, 'px']
+@var number maxContentWidth             "└─ Max Width"                [300, 0, 100000, 0.1, 'px']
+
+@var checkbox isGridSpacing             "･Spacing (px)"               1
+@var number gridPadding                 "├─ Grid Side"                [15, 0, 1000, 0.1, 'px']
+@var number contentSideMargin           "├─ Content Side"             [5, 0, 10000, 0.1, 'px']
+@var number contentBottomMargin         "├─ Content Bottom"           [14, 0, 10000, 0.1, 'px']
+@var number marginTitleTop              "├─ Title Top"                [9, 0, 10000, 0.1, 'px']
+@var number marginAvatorRight           "└─ Avator Right"             [10, 0, 10000, 0.1, 'px']
+
+@var checkbox isMetadata                "･Metadata"                   1
+@var range titleLineClamp               "├─ Title Line Clamp"         [3, 1, 5, 1]
+@var number titleText                   "├─ Title Size (rem)"         [1.35, 0, 100, 0.01, 'rem']
+@var number metaText                    "├─ Meta Text Size (rem)"     [1.28, 0, 100, 0.01, 'rem']
+@var number avatarSize                  "└─ Avatar Size (rem)"        [3.40, 0, 100, 0.01, 'rem']
 
 ==/UserStyle== */
 
-@-moz-document url-prefix("https://www.youtube.com/") {
+@-moz-document url-prefix("https://www.youtube.com/"),
+               url-prefix("https://m.youtube.com/"){
 
     if(isGridOptions){
         
@@ -147,69 +148,24 @@
                 height: avatarSize !important;
                 inset: auto !important;
             }
-            /* Menu Button */
-            if(smallerMenuButton){
-                /* Position */
-                .yt-lockup-metadata-view-model-wiz__menu-button{
-                    right: -10px !important;
-                }
-                /* Size */
-                ytd-rich-grid-renderer .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--icon-button {
-                    width: 36px - 6px !important;
-                    height: 36px - 6px !important;
-                }
-                .yt-lockup-metadata-view-model-wiz__title {
-                    padding-right: 24px - 6px !important;
-                }
-            }
         }
     }
     
     if(isSquares){
         yt-image-banner-view-model, /* Channel banner */
-        .yt-spec-avatar-shape--live-ring::after,
-        ytd-thumbnail a.ytd-thumbnail, ytd-thumbnail::before, /* Thumbnail */
-        yt-thumbnail-view-model
-        ytd-playlist-thumbnail a.ytd-playlist-thumbnail, /* Playlist thumbnail */
-        ytd-playlist-thumbnail::before,
-        .yt-thumbnail-view-model--medium,
-        .collections-stack-wiz__collection-stack1--large,
-        .collections-stack-wiz__collection-stack2,
-        .collections-stack-wiz__collection-stack1--medium
-        ytd-feed-nudge-renderer[rounded-container] #dismissible.ytd-feed-nudge-renderer, /* Looking for something different? */
-        ytd-feed-nudge-renderer[trim-style="gradient-trim-1"] #dismissible.ytd-feed-nudge-renderer::before,
-        #content-wrapper.ytd-feed-nudge-renderer,
+        .yt-spec-avatar-shape--live-ring::after, /* Channel icon */
+        #thumbnail, yt-thumbnail-view-model /* Thumbnail */
+        yt-collection-thumbnail-view-model *, /* Playlist thumbnail */
         .yt-spec-avatar-shape__image, #avatar.ytd-video-owner-renderer, yt-img-shadow, /* Images*/
         .yt-video-attribute-view-model--image-large .yt-video-attribute-view-model__hero-section,
-        #chip-container.yt-chip-cloud-chip-renderer, /* Filter Bar */
-        .ytChipShapeChip, /* # Buttons */
-        .yt-spec-button-shape-next--size-m, .ytp-tooltip-text-wrapper, .ytp-tooltip.ytp-preview:not(.ytp-text-detail), .ytp-tooltip-bg, .ytp-tooltip:not(.ytp-preview) .ytp-tooltip-text
-        ytd-live-chat-frame[round-background] #show-hide-button.ytd-live-chat-frame > ytd-toggle-button-renderer.ytd-live-chat-frame, ytd-live-chat-frame[round-background] #show-hide-button.ytd-live-chat-frame > ytd-button-renderer.ytd-live-chat-frame,
-        .arrow.yt-horizontal-list-renderer, /* Arrow */
-        yt-icon-button.ytd-masthead:hover, ytd-topbar-menu-button-renderer.ytd-masthead:hover, ytd-notification-topbar-button-renderer.ytd-masthead:hover, /* Notification */
-        yt-interaction.circular .fill.yt-interaction, yt-interaction.circular .stroke.yt-interaction, yt-interaction.circular .fill.yt-interaction, yt-interaction.circular .stroke.yt-interaction,
-        ytd-rich-item-renderer yt-interaction.extended .fill.yt-interaction, ytd-rich-item-renderer yt-interaction.extended .stroke.yt-interaction, /* Click Video */
-        ytd-rich-item-renderer.ytd-rich-grid-renderer,
-        .ytp-settings-menu, /* Player menu */
-        ytd-multi-page-menu-renderer, /* Popup Menu */
-        ytd-menu-popup-renderer,
-        tp-yt-paper-dialog[modern], /* Share popup */
-        .ytSearchboxComponentSearchButton, /* Search Bar */
-        .ytSearchboxComponentInputBox,
+        .ytSearchboxComponentSearchButton, .ytSearchboxComponentInputBox, /* Search Bar */
         .ytSearchboxComponentSuggestionsContainer, /* Search Suggestion */
-        ytd-watch-flexy[rounded-player] #ytd-player.ytd-watch-flexy, /* Player */
-        ytd-channel-video-player-renderer[rounded] #player.ytd-channel-video-player-renderer, /* Channel Page Player */
-        #description.ytd-watch-metadata, /* Description */
-        ytd-rich-metadata-renderer[rounded],
-        #description yt-interaction.rounded-large .fill.yt-interaction, #description yt-interaction.rounded-large .stroke.yt-interaction,
-        .ytVideoMetadataCarouselViewModelHost,
-        ytd-live-chat-frame[rounded-container]:not([theater-watch-while]),
-        ytd-live-chat-frame[rounded-container] iframe.ytd-live-chat-frame,
-        ytd-playlist-panel-renderer[modern-panels]:not([within-miniplayer]) #container.ytd-playlist-panel-renderer /* Playlist panel */
-        ytd-guide-entry-renderer, /* Sidebar */
-        #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:hover, #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:focus, #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:active,
-        yt-interaction.ytd-guide-entry-renderer, yt-interaction.ytd-guide-entry-renderer:hover,
-        tp-yt-paper-item:focus::before, .tp-yt-paper-item.tp-yt-paper-item:focus::before,
+        #player-container > ytd-player, /* Players */
+        .ytp-settings-menu, /* Player menu */
+        #description, #description *, /* Description */
+        ytd-engagement-panel-section-list-renderer, .ytd-playlist-panel-renderer, /* Player page sidebar */
+        yt-button-shape *, /* Common buttons */
+        button-view-model *, /* Common buttons */
         {
             border-radius: 0px !important;
         }
@@ -276,7 +232,7 @@
 
         /* Grayscale thumbnail */
         ytd-app > #content > ytd-page-manager > :not(ytd-browse),
-        ytd-app > #content > ytd-page-manager > ytd-browse:not([page-subtype="channels"]) {
+        ytd-app > #content > ytd-page-manager > ytd-browse:not([page-subtype="channels"]):not([page-subtype="playlist"]) {
             ytd-thumbnail,
             yt-thumbnail-view-model,
             .shortsLockupViewModelHostThumbnailContainer
@@ -331,7 +287,7 @@
         if(hideSection){
             /* on Home*/
             ytd-browse[page-subtype="home"]{
-                ytd-rich-grid-renderer ytd-rich-section-renderer{
+                ytd-rich-grid-renderer ytd-rich-section-renderer:not(:has(.ytd-feed-nudge-renderer)){
                     display: none !important;
                 }
             }
@@ -342,17 +298,24 @@
                 display: none !important;
             }
         }
-        /* Shorts */   
-        if(hideShortsSidebar){
-            ytd-guide-entry-renderer.ytd-guide-section-renderer:nth-child(2):has(svg path[d^="m7.61 15.719.392-.22v-2.24l-.534-.228-.942-.404c-.869-.372-1.4-1.15-1.446-1.974-.047-.823.39-1.642"]),
-            ytd-mini-guide-entry-renderer.ytd-mini-guide-renderer:nth-child(2):has(svg path[d^="m7.61 15.719.392-.22v-2.24l-.534-.228-.942-.404c-.869-.372-1.4-1.15-1.446-1.974-.047-.823.39-1.642"]) {
-                display: none !important;
+        if(hideHome){
+            ytd-browse[page-subtype="home"] {
+                ytd-rich-grid-renderer {
+                    #header, #contents{
+                        display: none !important;
+                    }
+                }
             }
         }
         /* Hide related videos */
         if(hideRelatedVideos){
             #related,
             #movie_player .html5-endscreen {
+                display: none !important;
+            }
+        }
+        if(hideComments){
+            ytd-comments {
                 display: none !important;
             }
         }
@@ -365,6 +328,10 @@
         }
         ytd-app[guide-persistent-and-visible] ytd-page-manager.ytd-app{
             margin-left: 210px !important;
+        }
+        /* Playlist width fix */
+        ytd-app{
+            --app-drawer-width: 210px !important
         }
         /* Inner Width */
         ytd-guide-entry-renderer{
