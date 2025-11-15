@@ -29,9 +29,15 @@ Please apply the user.css to the Stylus extension. I hope you can install it by 
 
 ### スクリーンショット
 
-[ex444.jpg](screenshots/ex444.jpg)へスタイル適用後:
+![styled-1.jpg](screenshots/styled-1.jpg)
 
-![ex444-39.jpg](screenshots/ex444-39.jpg)
+ホームグリッドの非表示を無効にする場合 :
+
+![styled-2.jpg](screenshots/styled-2.jpg)
+
+プレイヤーページ :
+
+![styled-3.jpg](screenshots/styled-3.jpg)
 
 ---
 
