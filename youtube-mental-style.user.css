@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           YouTube mental style
 @namespace      Insert your namespace!
-@version        1.0.11
+@version        1.0.12
 @description    UserCSS for YouTube, but not for general use.
 @author         Insert your name
 @license        Unlicense
@@ -163,6 +163,7 @@
         #player-container > ytd-player, /* Players */
         .ytp-settings-menu, /* Player menu */
         #description, #description *, /* Description */
+        ytd-rich-metadata-renderer[rounded], /* Description meta */
         ytd-engagement-panel-section-list-renderer, .ytd-playlist-panel-renderer, /* Player page sidebar */
         yt-button-shape *, /* Common buttons */
         button-view-model *, /* Common buttons */
@@ -236,7 +237,9 @@
             ytd-thumbnail img,
             yt-thumbnail-view-model img,
             .shortsLockupViewModelHostThumbnailContainer img,
-            #movie_player .ytp-endscreen-content > .ytp-videowall-still > .ytp-videowall-still-image img { /* Video end screen */
+            #movie_player .ytp-endscreen-content > .ytp-videowall-still > .ytp-videowall-still-image img, /* end screen */
+            .ytp-modern-videowall-still-image, /* new end screen */
+            { 
                 filter: grayscale(grayscaleThumbnail) !important;
             }
         }
@@ -315,7 +318,9 @@
         /* Hide related videos */
         if(hideRelatedVideos){
             #related,
-            #movie_player .html5-endscreen {
+            #movie_player .html5-endscreen, /* old End screen */
+            .ytp-fullscreen-grid, /* new End screen */
+            { 
                 display: none !important;
             }
             /* Mobile */
