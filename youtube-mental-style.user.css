@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           YouTube mental style
 @namespace      Insert your namespace!
-@version        1.0.12
+@version        1.0.13
 @description    UserCSS for YouTube, but not for general use.
 @author         Insert your name
 @license        Unlicense
@@ -232,14 +232,16 @@
         }
 
         /* Grayscale thumbnail */
-        ytd-app > #content > ytd-page-manager > :not(ytd-browse),
+        ytd-app > #content > ytd-page-manager > :not(ytd-browse):not(ytd-watch-flexy),
+        ytd-app > #content > ytd-page-manager > ytd-watch-flexy #columns > :not(#secondary), /* player page */
+        ytd-app > #content > ytd-page-manager > ytd-watch-flexy #columns > #secondary > #secondary-inner > :not(ytd-playlist-panel-renderer), /* player page */
         ytd-app > #content > ytd-page-manager > ytd-browse:not([page-subtype="channels"]):not([page-subtype="playlist"]) {
             ytd-thumbnail img,
             yt-thumbnail-view-model img,
             .shortsLockupViewModelHostThumbnailContainer img,
             #movie_player .ytp-endscreen-content > .ytp-videowall-still > .ytp-videowall-still-image img, /* end screen */
             .ytp-modern-videowall-still-image, /* new end screen */
-            { 
+            {
                 filter: grayscale(grayscaleThumbnail) !important;
             }
         }
