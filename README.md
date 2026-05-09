@@ -3,7 +3,7 @@
 ## YouTube mental style (youtube-mental-style.user.css)
 
 私は、YouTubeに他のフロントエンドを使ってアクセスしています。しかし、フロントエンドが動作しなくなった場合は、YouTubeに直接アクセスする必要があるでしょう。\
-I am accessing YouTube using another frontend. However, if the frontend stops working, I will need to access YouTube directly.
+I access YouTube using another frontend. However, if the frontend stops working, I will need to access YouTube directly.
 
 しかし、YouTubeの見た目は最悪です。これらをある程度パーソナライズするには、アカウントが必要になります。一方で、過去の時点でパーソナライズされたYouTubeのおすすめがひどいと気づいています。パーソナライズされたYouTubeのおすすめは下水道ですが、パーソナライズされていないYouTubeは最悪の地獄です。\
 However, the appearance of YouTube is terrible. To personalize it to some extent, an account is required. On the other hand, I have realized that the personalized recommendations on YouTube were terrible at some point in the past. Personalized YouTube recommendations are like a sewer, but non-personalized YouTube is the worst hell.
@@ -83,3 +83,9 @@ There are extensions such as [Violentmonkey](https://violentmonkey.github.io/), 
 You can find many user-created scripts on [greasyfork.org](https://greasyfork.org/).
 
 You can also find other UserCSS styles by searching on [userstyles.world](https://userstyles.world/).
+
+---
+
+I came up with all the content for user.css myself.
+
+This repository uses machine translation (Google Translate). Also LLM is used for translation (ChatGPT or LocalLLM).
