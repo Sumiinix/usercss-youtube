@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           YouTube mental style
 @namespace      Insert your namespace!
-@version        1.0.13
+@version        1.0.14
 @description    UserCSS for YouTube, but not for general use.
 @author         Insert your name
 @license        Unlicense
@@ -15,12 +15,12 @@
 @var checkbox hideHome                  "･Home Grids"                      1
 @var checkbox hideRelatedVideos         "･Related Videos"                  1
 
-@var checkbox isSquares                 "➡️ Prefer squares ⬅️"             1
+@var checkbox isSquares                 "➡️ Some squares ⬅️"             1
 
 @var checkbox isColorOption             "⬇️ Color Options ⬇️"              1
 @var checkbox modifyDarkThemeAppearance "･Modified dark theme appearance"  1
+@var color descriptionColor             "└─ Player Page Description"         #ffffff0a
 @var color seekBarColor                 "･Seek Bar"                        #e2e2e2
-@var color descriptionColor             "･Player Page Description"         #ffffff0a
 @var number grayscaleThumbnail          "･Grayscale Thumbnail (%)"         [100, 0, 100, 10, '%']
 
 @var checkbox isExpandedSidebar         "➡️ Smaller Sidebar ⬅️"       1
@@ -40,13 +40,12 @@
 @var checkbox isMetadata                "･Metadata"                   1
 @var range titleLineClamp               "├─ Title Line Clamp"         [3, 1, 5, 1]
 @var number titleText                   "├─ Title Size (rem)"         [1.35, 0, 100, 0.01, 'rem']
-@var number metaText                    "├─ Meta Text Size (rem)"     [1.28, 0, 100, 0.01, 'rem']
-@var number avatarSize                  "└─ Avatar Size (rem)"        [3.40, 0, 100, 0.01, 'rem']
+@var number metaText                    "└─ Meta Text Size (rem)"     [1.28, 0, 100, 0.01, 'rem']
 
 ==/UserStyle== */
 
 @-moz-document url-prefix("https://www.youtube.com/"),
-               url-prefix("https://m.youtube.com/"){
+    url-prefix("https://m.youtube.com/"){
 
     if(isGridOptions){
         
@@ -114,7 +113,7 @@
             .yt-lockup-view-model-wiz--vertical.yt-lockup-view-model-wiz--rich-grid-legacy-margin .yt-lockup-view-model-wiz__content-image{
                 padding-bottom: marginTitleTop !important
             }
-            .yt-lockup-metadata-view-model-wiz__avatar {
+            .ytLockupMetadataViewModelAvatar {
                 margin-right: marginAvatorRight !important;
             }
         }
@@ -122,51 +121,32 @@
         /* Grid Metadata */
         if(isMetadata){
             /* Title line clamp */
-            .yt-lockup-metadata-view-model-wiz--standard.yt-lockup-metadata-view-model-wiz--rich-grid-legacy-typography .yt-lockup-metadata-view-model-wiz__title,
-            .yt-lockup-metadata-view-model--standard.yt-lockup-metadata-view-model--rich-grid-legacy-typography .yt-lockup-metadata-view-model__title {
+            #content .ytLockupMetadataViewModelTitle {
                 -webkit-line-clamp: titleLineClamp !important;
                 max-height: fit-content !important;
             }
             /* Titile size  */
-            .yt-lockup-metadata-view-model-wiz--standard.yt-lockup-metadata-view-model-wiz--rich-grid-legacy-typography .yt-lockup-metadata-view-model-wiz__title,
-            .yt-lockup-metadata-view-model--standard.yt-lockup-metadata-view-model--rich-grid-legacy-typography .yt-lockup-metadata-view-model__title{
+            #content .ytLockupMetadataViewModelTitle {
                 font-size: titleText !important;
             }
             /* Metadata size */
-            .yt-content-metadata-view-model-wiz--medium-text .yt-content-metadata-view-model-wiz__metadata-text,
-            .yt-content-metadata-view-model--medium-text .yt-content-metadata-view-model__metadata-text {
+            .ytContentMetadataViewModelMediumText .ytContentMetadataViewModelMetadataText {
                 font-size: metaText !important;
                 line-height: metaText + 40% !important;
-            }
-            /* Avatar size */
-            ytd-rich-grid-renderer .yt-spec-avatar-shape--avatar-size-medium{
-                width: avatarSize !important;
-                height: avatarSize !important;
-            }
-            ytd-rich-grid-renderer .yt-spec-avatar-shape--live-ring::after{
-                width: avatarSize !important;
-                height: avatarSize !important;
-                inset: auto !important;
             }
         }
     }
     
     if(isSquares){
-        yt-image-banner-view-model, /* Channel banner */
-        .yt-spec-avatar-shape--live-ring::after, /* Channel icon */
         #thumbnail, yt-thumbnail-view-model /* Thumbnail */
         yt-collection-thumbnail-view-model *, /* Playlist thumbnail */
         .yt-spec-avatar-shape__image, #avatar.ytd-video-owner-renderer, yt-img-shadow, /* Images*/
         .yt-video-attribute-view-model--image-large .yt-video-attribute-view-model__hero-section,
         .ytSearchboxComponentSearchButton, .ytSearchboxComponentInputBox, /* Search Bar */
-        .ytSearchboxComponentSuggestionsContainer, /* Search Suggestion */
         #player-container > ytd-player, /* Players */
         .ytp-settings-menu, /* Player menu */
-        #description, #description *, /* Description */
         ytd-rich-metadata-renderer[rounded], /* Description meta */
         ytd-engagement-panel-section-list-renderer, .ytd-playlist-panel-renderer, /* Player page sidebar */
-        yt-button-shape *, /* Common buttons */
-        button-view-model *, /* Common buttons */
         {
             border-radius: 0px !important;
         }
@@ -181,21 +161,6 @@
                     background: #0f0f0fc9 !important;
                     backdrop-filter: blur(8px) !important;
                 }
-                #frosted-glass.with-chipbar.ytd-app {
-                    background: #0f0f0fc9 !important;
-                    backdrop-filter: blur(8px) !important;
-                }
-                #chips-wrapper.ytd-feed-filter-chip-bar-renderer{
-                    background: #00000000 !important;
-                    pointer-events: none;
-                }
-                #chips-wrapper.ytd-feed-filter-chip-bar-renderer *{
-                    pointer-events: auto;
-                }
-                yt-chip-cloud-chip-renderer.ytd-feed-filter-chip-bar-renderer{
-                    background: #0f0f0fc9 !important;
-                    backdrop-filter: blur(8px) !important;
-                }
                 /* Search Bar Color */
                 .ytSearchboxComponentInputBoxDark{
                     background-color: #7a7a7a14 !important;
@@ -204,11 +169,6 @@
                 .ytSearchboxComponentSearchButtonDark{
                     background-color: #ffffff14 !important;
                     border-color: #7a7a7a52 !important;
-                }
-
-                .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled {
-                    color: #f1f1f1 !important;
-                    background: #ffffff1a !important;
                 }
                 /* Description */
                 #description.ytd-watch-metadata{
@@ -307,6 +267,10 @@
             ytd-search ytd-horizontal-card-list-renderer {
                 display: none !important;
             }
+            /* on Home for mobile */
+            .rich-section-content {
+                display: none !important;
+            }
         }
         if(hideHome){
             ytd-browse[page-subtype="home"] {
@@ -320,7 +284,6 @@
         /* Hide related videos */
         if(hideRelatedVideos){
             #related,
-            #movie_player .html5-endscreen, /* old End screen */
             .ytp-fullscreen-grid, /* new End screen */
             { 
                 display: none !important;
