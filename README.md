@@ -1,5 +1,8 @@
 # UserCSS for YouTube
 
+頻繁にこれをアップデートするつもりはありませんが、[他のフォージ](https://git.sumiinix.moe/Sumiinix/usercss-youtube)で続けるつもりです。\
+I will not update this frequently. But will be continued on [other forge](https://git.sumiinix.moe/Sumiinix/usercss-youtube).
+
 このUserCSSは通常の人にはオススメできません。\
 This UserCSS is not recommended for the average person.
 
