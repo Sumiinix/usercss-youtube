@@ -1,353 +1,61 @@
 /* ==UserStyle==
 @name           YouTube mental style
 @namespace      Insert your namespace!
-@version        1.0.14
+@version        1.0.15
 @description    UserCSS for YouTube, but not for general use.
 @author         Insert your name
 @license        Unlicense
 @preprocessor   stylus
 
 @var checkbox isHideOptionEnabled       "⬇️ Hide Options ⬇️"               1
-@var checkbox hideVoiceSearch           "･Voice Search"                    1
-@var checkbox hideExtraDescription      "･Extra Description"               1
 @var checkbox hideComments              "･Comments"                        0
-@var checkbox hideSection               "･All Sections in Home & Search"   1
 @var checkbox hideHome                  "･Home Grids"                      1
 @var checkbox hideRelatedVideos         "･Related Videos"                  1
 
-@var checkbox isSquares                 "➡️ Some squares ⬅️"             1
-
 @var checkbox isColorOption             "⬇️ Color Options ⬇️"              1
-@var checkbox modifyDarkThemeAppearance "･Modified dark theme appearance"  1
-@var color descriptionColor             "└─ Player Page Description"         #ffffff0a
-@var color seekBarColor                 "･Seek Bar"                        #e2e2e2
-@var number grayscaleThumbnail          "･Grayscale Thumbnail (%)"         [100, 0, 100, 10, '%']
-
-@var checkbox isExpandedSidebar         "➡️ Smaller Sidebar ⬅️"       1
-
-@var checkbox isGridOptions             "⬇️ Grid Options ⬇️"          1
-@var checkbox isContentSize             "･Content Size (px)"          1
-@var number contentWidth                "├─ Base Width"               [240, 0, 100000, 0.1, 'px']
-@var number maxContentWidth             "└─ Max Width"                [300, 0, 100000, 0.1, 'px']
-
-@var checkbox isGridSpacing             "･Spacing (px)"               1
-@var number gridPadding                 "├─ Grid Side"                [15, 0, 1000, 0.1, 'px']
-@var number contentSideMargin           "├─ Content Side"             [5, 0, 10000, 0.1, 'px']
-@var number contentBottomMargin         "├─ Content Bottom"           [14, 0, 10000, 0.1, 'px']
-@var number marginTitleTop              "├─ Title Top"                [9, 0, 10000, 0.1, 'px']
-@var number marginAvatorRight           "└─ Avator Right"             [10, 0, 10000, 0.1, 'px']
-
-@var checkbox isMetadata                "･Metadata"                   1
-@var range titleLineClamp               "├─ Title Line Clamp"         [3, 1, 5, 1]
-@var number titleText                   "├─ Title Size (rem)"         [1.35, 0, 100, 0.01, 'rem']
-@var number metaText                    "└─ Meta Text Size (rem)"     [1.28, 0, 100, 0.01, 'rem']
+@var number grayscaleThumbnail          "･Grayscale Thumbnail (%)"         [90, 0, 100, 10, '%']
 
 ==/UserStyle== */
 
-@-moz-document url-prefix("https://www.youtube.com/"),
-    url-prefix("https://m.youtube.com/"){
+@-moz-document url-prefix("https://www.youtube.com/"), url-prefix("https://m.youtube.com/")
+  if (isColorOption)
+    /* Grayscale thumbnail */
+    ytd-app > #content > ytd-page-manager > :not(ytd-browse):not(ytd-watch-flexy),
+    ytd-app > #content > ytd-page-manager > ytd-watch-flexy #columns > :not(#secondary), /* player page */
+    ytd-app > #content > ytd-page-manager > ytd-watch-flexy #columns > #secondary > #secondary-inner > :not(ytd-playlist-panel-renderer), /* player page */
+    ytd-app > #content > ytd-page-manager > ytd-browse:not([page-subtype="channels"]):not([page-subtype="playlist"])
+      ytd-thumbnail img,
+      yt-thumbnail-view-model img,
+      .shortsLockupViewModelHostThumbnailContainer img,
+      #movie_player .ytp-endscreen-content > .ytp-videowall-still > .ytp-videowall-still-image img, /* end screen */
+      .ytp-modern-videowall-still-image /* new end screen */
+        filter grayscale(grayscaleThumbnail) !important
 
-    if(isGridOptions){
-        
-        /* Content width */
-        if(isContentSize){
-            ytd-rich-item-renderer[rendered-from-rich-grid]{
-                width: contentWidth !important;
-                max-width: maxContentWidth!important;
-                flex: 1 0 auto !important;
-            }
-            ytd-ghost-grid-renderer{
-                display: none !important;
-            }
-            #contents.ytd-rich-grid-renderer{
-                justify-content: center !important;
-                /* Display from one end to the other */
-                max-width: 100% !important;
-            }
-            /* Display from one end to the other */
-            ytd-feed-filter-chip-bar-renderer[fluid-width] #chips-content.ytd-feed-filter-chip-bar-renderer{
-                max-width: 100% !important;
-            }
-            
-            ytd-continuation-item-renderer{
-                min-width: contentWidth !important;
-                flex: 0 0 0 !important;
-                height: auto !important;
-                justify-content: center;
-            }
-            #attached-survey.ytd-rich-grid-media{
-                display: none !important;
-            }
-            ytd-rich-section-renderer:has(ytd-inline-survey-renderer){
-                display:none !important;
-            }
-            
-            /* ## Search results  ## */
-            ytd-search ytd-video-renderer[use-bigger-thumbs][bigger-thumbs-style="BIG"] ytd-thumbnail.ytd-video-renderer, /* Videos */
-            ytd-search ytd-channel-renderer[use-bigger-thumbs][bigger-thumb-style="BIG"] #avatar-section.ytd-channel-renderer { /* Channel */
-                max-width: maxContentWidth !important;
-                width: maxContentWidth !important;
-            }
-            /* Playlist */
-            ytd-search #contents .ytCollectionThumbnailViewModelHost { 
-                max-width: maxContentWidth !important;
-                width: maxContentWidth !important;
-            }
-            ytd-search ytd-item-section-renderer > #contents .yt-lockup-view-model__content-image { 
-                width: auto !important;
-            }
-        }
+    /* Mobile */
+    ytm-browse .tab-content[tab-identifier="FEwhat_to_watch"] yt-thumbnail-view-model img, /* Home grid */
+    .related-items-container ytm-thumbnail-cover img,
+    .shortsLockupViewModelHostThumbnailContainer img
+      filter grayscale(grayscaleThumbnail) !important
 
-        /* Spacing */
-        if(isGridSpacing){
-            /* Grid side spacing */
-            ytd-rich-grid-renderer{
-                padding-right: gridPadding !important;
-                padding-left: gridPadding !important;
-            }
-            /* Content spacing */
-            ytd-rich-item-renderer[rendered-from-rich-grid]{
-                margin: 0px contentSideMargin contentBottomMargin contentSideMargin !important;
-            }
-            /* Metadata spacing */
-            .yt-lockup-view-model-wiz--vertical.yt-lockup-view-model-wiz--rich-grid-legacy-margin .yt-lockup-view-model-wiz__content-image{
-                padding-bottom: marginTitleTop !important
-            }
-            .ytLockupMetadataViewModelAvatar {
-                margin-right: marginAvatorRight !important;
-            }
-        }
+  if (isHideOptionEnabled)
+    if (hideHome)
+      ytd-browse[page-subtype="home"]
+        ytd-rich-grid-renderer
+          #header, #contents
+            display none !important
+      // Mobile
+      ytm-browse .tab-content[tab-identifier="FEwhat_to_watch"] ytm-rich-grid-renderer
+        display none !important
 
-        /* Grid Metadata */
-        if(isMetadata){
-            /* Title line clamp */
-            #content .ytLockupMetadataViewModelTitle {
-                -webkit-line-clamp: titleLineClamp !important;
-                max-height: fit-content !important;
-            }
-            /* Titile size  */
-            #content .ytLockupMetadataViewModelTitle {
-                font-size: titleText !important;
-            }
-            /* Metadata size */
-            .ytContentMetadataViewModelMediumText .ytContentMetadataViewModelMetadataText {
-                font-size: metaText !important;
-                line-height: metaText + 40% !important;
-            }
-        }
-    }
-    
-    if(isSquares){
-        #thumbnail, yt-thumbnail-view-model /* Thumbnail */
-        yt-collection-thumbnail-view-model *, /* Playlist thumbnail */
-        .yt-spec-avatar-shape__image, #avatar.ytd-video-owner-renderer, yt-img-shadow, /* Images*/
-        .yt-video-attribute-view-model--image-large .yt-video-attribute-view-model__hero-section,
-        .ytSearchboxComponentSearchButton, .ytSearchboxComponentInputBox, /* Search Bar */
-        #player-container > ytd-player, /* Players */
-        .ytp-settings-menu, /* Player menu */
-        ytd-rich-metadata-renderer[rounded], /* Description meta */
-        ytd-engagement-panel-section-list-renderer, .ytd-playlist-panel-renderer, /* Player page sidebar */
-        {
-            border-radius: 0px !important;
-        }
-    }
+    if (hideRelatedVideos)
+      #related,
+      .ytp-fullscreen-grid /* new End screen */
+        display none !important
 
-    if(isColorOption){
-        
-        if(modifyDarkThemeAppearance){
-            html[dark]{
-                /* Header color */
-                #background.ytd-masthead{
-                    background: #0f0f0fc9 !important;
-                    backdrop-filter: blur(8px) !important;
-                }
-                /* Search Bar Color */
-                .ytSearchboxComponentInputBoxDark{
-                    background-color: #7a7a7a14 !important;
-                    border-color: #7a7a7a52 !important;
-                }
-                .ytSearchboxComponentSearchButtonDark{
-                    background-color: #ffffff14 !important;
-                    border-color: #7a7a7a52 !important;
-                }
-                /* Description */
-                #description.ytd-watch-metadata{
-                    background: descriptionColor !important;
-                }
-                ytd-rich-metadata-renderer{
-                    background: descriptionColor !important;
-                }
-                .ytVideoMetadataCarouselViewModelHost{
-                    background: descriptionColor !important;
-                }
-            }
-        }
-        
-        /* Seek Bar Color */
-        #progress.yt-page-navigation-progress{
-            background: seekBarColor !important;
-        }
-        .ytp-swatch-background-color,.ytp-play-progress, ytd-thumbnail-overlay-resume-playback-renderer[enable-refresh-signature-moments-web] #progress.ytd-thumbnail-overlay-resume-playback-renderer{
-            background: seekBarColor !important;
-        }
+      /* Mobile */
+      .related-items-container
+        display none !important
 
-        /* Grayscale thumbnail */
-        ytd-app > #content > ytd-page-manager > :not(ytd-browse):not(ytd-watch-flexy),
-        ytd-app > #content > ytd-page-manager > ytd-watch-flexy #columns > :not(#secondary), /* player page */
-        ytd-app > #content > ytd-page-manager > ytd-watch-flexy #columns > #secondary > #secondary-inner > :not(ytd-playlist-panel-renderer), /* player page */
-        ytd-app > #content > ytd-page-manager > ytd-browse:not([page-subtype="channels"]):not([page-subtype="playlist"]) {
-            ytd-thumbnail img,
-            yt-thumbnail-view-model img,
-            .shortsLockupViewModelHostThumbnailContainer img,
-            #movie_player .ytp-endscreen-content > .ytp-videowall-still > .ytp-videowall-still-image img, /* end screen */
-            .ytp-modern-videowall-still-image, /* new end screen */
-            {
-                filter: grayscale(grayscaleThumbnail) !important;
-            }
-        }
-        /* Mobile */
-        ytm-thumbnail-cover img,
-        .shortsLockupViewModelHostThumbnailContainer img {
-            filter: grayscale(grayscaleThumbnail) !important;
-        }
-    }
-    
-    
-    if(isHideOptionEnabled){
-        
-        if(hideVoiceSearch){
-            #voice-search-button{
-                display: none!important;
-            }
-        }
-        
-        if(hideExtraDescription){
-            #description {
-                ytd-reel-shelf-renderer.ytd-structured-description-content-renderer:has(ytm-shorts-lockup-view-model), /* Shorts remix */
-                #dismissible>#footer-section:has(path[d^="M12 4v9.38c-.73-.84-1.8-1.38-3-1.38-2.21 0-4"]), /* YT Music button */
-                #header.ytd-video-description-infocards-section-renderer, /* Channel descriptions */
-                #social-links.ytd-video-description-infocards-section-renderer, /* Social links */
-                #infocards-section.ytd-video-description-infocards-section-renderer, /* Reccomend videos */
-                #items>ytd-horizontal-card-list-renderer[modern-chapters], /* Chapters */
-                ytd-video-description-transcript-section-renderer>#header, /* Transcipt header */
-                ytd-video-description-transcript-section-renderer>#sub-header, /* Transcipt sub-header */
-                {
-                    display: none !important;
-                }
-            }
-            /* Member button */
-            #sponsor-button {
-                display: none !important;
-            }
-             /* Shops */
-            ytd-merch-shelf-renderer,
-            {
-                display: none !important;
-            }
-            /* Padding bottom */
-            ytd-video-description-infocards-section-renderer {
-                padding: 0px 0 !important;
-            }
-            /* Side shorts remix */
-            ytd-reel-shelf-renderer:has(ytm-shorts-lockup-view-model) {
-                display: none !important;
-            }
-        }
-        /* Hide All sections*/
-        if(hideSection){
-            /* on Home*/
-            ytd-browse[page-subtype="home"]{
-                ytd-rich-grid-renderer ytd-rich-section-renderer:not(:has(.ytd-feed-nudge-renderer)){
-                    display: none !important;
-                }
-            }
-            /* on search result */
-            ytd-search grid-shelf-view-model,
-            ytd-search ytd-shelf-renderer,
-            ytd-search ytd-horizontal-card-list-renderer {
-                display: none !important;
-            }
-            /* on Home for mobile */
-            .rich-section-content {
-                display: none !important;
-            }
-        }
-        if(hideHome){
-            ytd-browse[page-subtype="home"] {
-                ytd-rich-grid-renderer {
-                    #header, #contents{
-                        display: none !important;
-                    }
-                }
-            }
-        }
-        /* Hide related videos */
-        if(hideRelatedVideos){
-            #related,
-            .ytp-fullscreen-grid, /* new End screen */
-            { 
-                display: none !important;
-            }
-            /* Mobile */
-            .related-items-container {
-                display: none !important;
-            }
-        }
-
-        if(hideComments){
-            ytd-comments {
-                display: none !important;
-            }
-        }
-    }
-
-    if(isExpandedSidebar){
-        /* Width */
-        ytd-guide-renderer.ytd-app, tp-yt-app-drawer[persistent]{
-            width: 210px !important;
-        }
-        ytd-app[guide-persistent-and-visible] ytd-page-manager.ytd-app{
-            margin-left: 210px !important;
-        }
-        /* Playlist width fix */
-        ytd-app{
-            --app-drawer-width: 210px !important
-        }
-        /* Inner Width */
-        ytd-guide-entry-renderer{
-            width: 100% !important;
-        }
-        tp-yt-paper-item.ytd-guide-entry-renderer{
-            padding-right: 9px !important;
-            padding-left: 9px !important;
-        }
-        /* Item height */
-        ytd-guide-section-renderer{
-            --paper-item-min-height: 40px !important;
-        }
-        /* Item padding */
-        #guide-section-title.ytd-guide-section-renderer{
-            padding-right: 3px !important;
-            padding-left: 3px !important;
-        }
-        /* Item section font size */
-        ytd-guide-section-renderer[modern-typography] #guide-section-title.ytd-guide-section-renderer{
-            font-size: 1.5rem !important;
-            max-height: fit-content !important;
-            -webkit-line-clamp: 2 !important;
-        }
-        /* Item font size */
-        .title.ytd-guide-entry-renderer{
-            font-size: 1.35rem !important;
-        }
-        /* Icon Margin */
-        .guide-icon.ytd-guide-entry-renderer, yt-img-shadow.ytd-guide-entry-renderer{
-            margin-right: 15px !important;
-        }
-        /* Iconsize */
-        .guide-icon.ytd-guide-entry-renderer{
-            --iron-icon-height: 22px !important;
-            --iron-icon-width: 22px !important;
-        }
-    }
-}
+    if (hideComments)
+      ytd-comments
+        display none !important
