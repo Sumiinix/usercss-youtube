@@ -1,5 +1,7 @@
 # UserCSS for YouTube
 
+<a href="https://git.sumiinix.moe/Sumiinix/usercss-youtube"><img src="https://img.shields.io/badge/Forgejo-24283b?style=for-the-badge&color=e0af68"></a>
+
 > [!TIP]
 > This UserCSS is not recommended for most people.
 
